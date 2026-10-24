@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal de Ciberseguridad</title>
     <style>
-        /* ESTILOS DE DISEÑO (CSS) */
+        /* ESTILOS BASE */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #0f172a;
@@ -38,18 +38,12 @@
             padding: 30px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             border: 1px solid #334155;
-            min-height: 250px;
+            min-height: 220px;
+            box-sizing: border-box;
         }
 
-        /* Ocultar diapositivas por defecto */
-        .diapositiva {
-            display: none;
-        }
-
-        /* Mostrar la diapositiva activa */
-        .activa {
-            display: block;
-        }
+        .diapositiva { display: none; }
+        .activa { display: block; }
 
         h2 {
             color: #38bdf8;
@@ -58,50 +52,89 @@
             padding-bottom: 10px;
         }
 
-        ul {
-            padding-left: 20px;
-            line-height: 1.6;
-        }
-
-        li, p {
-            font-size: 16px;
-            color: #cbd5e1;
-            margin-bottom: 10px;
-        }
-
-        strong {
-            color: #f1f5f9;
-        }
-
-        /* BOTONES DE NAVEGACIÓN */
+        /* BOTONES DE LAS DIAPOSITIVAS */
         .botones-container {
             display: flex;
             justify-content: space-between;
             width: 100%;
-            max-width: 660px;
-            margin-top: 20px;
+            max-width: 600px;
+            margin-top: 15px;
+            margin-bottom: 50px;
         }
 
         button {
             background-color: #38bdf8;
             color: #0f172a;
             border: none;
-            padding: 12px 24px;
-            font-size: 16px;
+            padding: 10px 20px;
             font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
             transition: background 0.3s;
         }
 
-        button:hover {
-            background-color: #0ea5e9;
-        }
-
+        button:hover { background-color: #0ea5e9; }
         button:disabled {
             background-color: #475569;
             color: #94a3b8;
             cursor: not-allowed;
+        }
+
+        /* NUEVO: DISEÑO DE TARJETAS CON IMÁGENES (GRID) */
+        .seccion-titulo {
+            color: #38bdf8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .tarjeta {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            overflow: hidden;
+            width: 280px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        /* Efecto al pasar el ratón por encima */
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        /* Estilo para las imágenes */
+        .tarjeta img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        /* Contenido de texto de la tarjeta */
+        .tarjeta-info {
+            padding: 15px;
+        }
+
+        .tarjeta-info h3 {
+            margin: 0 0 10px 0;
+            color: #38bdf8;
+            font-size: 18px;
+        }
+
+        .tarjeta-info p {
+            margin: 0;
+            font-size: 14px;
+            color: #cbd5e1;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -110,42 +143,66 @@
     <h1>Portal de Ciberseguridad</h1>
     <p class="subtitle">Aprende a proteger tu entorno digital paso a paso.</p>
 
-    <!-- CONTENEDOR DE DIAPOSITIVAS -->
+    <!-- BLOQUE 1: DIAPOSITIVAS INTERACTIVAS -->
     <div class="slider-container">
-        
-        <!-- Diapositiva 1 -->
-        <div class="diapositiva activa" id="diapo0">
+        <div class="diapositiva activa">
             <h2>1. Bienvenida</h2>
             <p>Bienvenido a mi espacio web dedicado al aprendizaje y protección digital.</p>
             <p>Usa los botones de abajo para navegar a través de las diapositivas informativas y descubrir cómo mantenerte a salvo en internet.</p>
         </div>
-
-        <!-- Diapositiva 2 -->
-        <div class="diapositiva" id="diapo1">
+        <div class="diapositiva">
             <h2>2. Consejos Esenciales</h2>
-            <ul>
-                <li><strong>Contraseñas seguras:</strong> Usa combinaciones de letras, números y símbolos.</li>
-                <li><strong>Autenticación en dos pasos (2FA):</strong> Actívala en todas tus cuentas importantes.</li>
-                <li><strong>Cuidado con el Phishing:</strong> No hagas clic en enlaces sospechosos.</li>
-            </ul>
+            <p><strong>Contraseñas:</strong> Deben tener letras, números y símbolos.</p>
+            <p><strong>Doble Factor:</strong> Activa el 2FA en todas tus cuentas importantes para evitar hackeos.</p>
         </div>
-
-        <!-- Diapositiva 3 -->
-        <div class="diapositiva" id="diapo2">
+        <div class="diapositiva">
             <h2>3. Conceptos Clave</h2>
-            <p><strong>Malware:</strong> Cualquier programa malicioso diseñado para dañar un sistema informático.</p>
-            <p><strong>Antivirus:</strong> Software encargado de detectar, bloquear y eliminar amenazas de tu computadora.</p>
+            <p><strong>Malware:</strong> Programas maliciosos diseñados para infiltrarse en tu sistema.</p>
+            <p><strong>Antivirus:</strong> Herramientas vitales para escanear y desinfectar archivos dañinos.</p>
         </div>
-
     </div>
 
-    <!-- BOTONES ATRÁS Y SIGUIENTE -->
     <div class="botones-container">
         <button id="btnAtras" onclick="cambiarDiapo(-1)" disabled>Anterior</button>
         <button id="btnSig" onclick="cambiarDiapo(1)">Siguiente</button>
     </div>
 
-    <!-- CÓDIGO DE CONTROL (JAVASCRIPT) -->
+
+    <!-- BLOQUE 2: NUEVA SECCIÓN DE IMÁGENES E INFORMACIÓN -->
+    <h2 class="seccion-titulo">Amenazas Comunes en la Red</h2>
+    
+    <div class="grid-container">
+        
+        <!-- Tarjeta 1 -->
+        <div class="tarjeta">
+            <img src="https://unsplash.com" alt="Phishing">
+            <div class="tarjeta-info">
+                <h3>Phishing (Estafas)</h3>
+                <p>Correos o mensajes falsos que simulan ser de tu banco para robar tus contraseñas y datos confidenciales.</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="tarjeta">
+            <img src="https://unsplash.com" alt="Hacking">
+            <div class="tarjeta-info">
+                <h3>Criptografía</h3>
+                <p>El arte de proteger la información mediante códigos para que solo las personas autorizadas puedan leerla.</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="tarjeta">
+            <img src="https://unsplash.com" alt="Seguridad">
+            <div class="tarjeta-info">
+                <h3>Redes Wi-Fi Públicas</h3>
+                <p>Evita conectar tus cuentas bancarias cuando estés en redes abiertas de cafeterías o aeropuertos; son fáciles de espiar.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT DE CONTROL -->
     <script>
         let indiceActual = 0;
         const diapositivas = document.querySelectorAll('.diapositiva');
@@ -153,16 +210,9 @@
         const btnSig = document.getElementById('btnSig');
 
         function cambiarDiapo(direccion) {
-            // Ocultar diapositiva actual
             diapositivas[indiceActual].classList.remove('activa');
-            
-            // Calcular nuevo índice
             indiceActual += direccion;
-            
-            // Mostrar nueva diapositiva
             diapositivas[indiceActual].classList.add('activa');
-
-            // Controlar activación de botones
             btnAtras.disabled = (indiceActual === 0);
             btnSig.disabled = (indiceActual === diapositivas.length - 1);
         }
