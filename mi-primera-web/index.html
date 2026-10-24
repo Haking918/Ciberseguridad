@@ -2,25 +2,171 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Sitio de Ciberseguridad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Ciberseguridad</title>
+    <style>
+        /* ESTILOS DE DISEÑO (CSS) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #38bdf8;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* DISEÑO DE LAS DIAPOSITIVAS */
+        .slider-container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #1e293b;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid #334155;
+            min-height: 250px;
+        }
+
+        /* Ocultar diapositivas por defecto */
+        .diapositiva {
+            display: none;
+        }
+
+        /* Mostrar la diapositiva activa */
+        .activa {
+            display: block;
+        }
+
+        h2 {
+            color: #38bdf8;
+            margin-top: 0;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+
+        li, p {
+            font-size: 16px;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #f1f5f9;
+        }
+
+        /* BOTONES DE NAVEGACIÓN */
+        .botones-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 660px;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #38bdf8;
+            color: #0f172a;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #0ea5e9;
+        }
+
+        button:disabled {
+            background-color: #475569;
+            color: #94a3b8;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
 
     <h1>Portal de Ciberseguridad</h1>
-    <p>Bienvenidos a mi espacio web dedicado al aprendizaje y protección digital.</p>
+    <p class="subtitle">Aprende a proteger tu entorno digital paso a paso.</p>
 
-    <!-- Nueva Sección: Consejos -->
-    <h2>Consejos de Seguridad Esenciales</h2>
-    <ul>
-        <li><strong>Contraseñas seguras:</strong> Usa combinaciones de letras, números y símbolos.</li>
-        <li><strong>Autenticación en dos pasos (2FA):</strong> Actívala en todas tus cuentas importantes.</li>
-        <li><strong>Cuidado con el Phishing:</strong> No hagas clic en enlaces sospechosos que lleguen a tu correo.</li>
-    </ul>
+    <!-- CONTENEDOR DE DIAPOSITIVAS -->
+    <div class="slider-container">
+        
+        <!-- Diapositiva 1 -->
+        <div class="diapositiva activa" id="diapo0">
+            <h2>1. Bienvenida</h2>
+            <p>Bienvenido a mi espacio web dedicado al aprendizaje y protección digital.</p>
+            <p>Usa los botones de abajo para navegar a través de las diapositivas informativas y descubrir cómo mantenerte a salvo en internet.</p>
+        </div>
 
-    <!-- Nueva Sección: Glosario -->
-    <h2>Conceptos Clave</h2>
-    <p><strong>Malware:</strong> Cualquier programa malicioso diseñado para dañar un sistema.</p>
-    <p><strong>Antivirus:</strong> Software encargado de detectar y eliminar amenazas informáticas.</p>
+        <!-- Diapositiva 2 -->
+        <div class="diapositiva" id="diapo1">
+            <h2>2. Consejos Esenciales</h2>
+            <ul>
+                <li><strong>Contraseñas seguras:</strong> Usa combinaciones de letras, números y símbolos.</li>
+                <li><strong>Autenticación en dos pasos (2FA):</strong> Actívala en todas tus cuentas importantes.</li>
+                <li><strong>Cuidado con el Phishing:</strong> No hagas clic en enlaces sospechosos.</li>
+            </ul>
+        </div>
+
+        <!-- Diapositiva 3 -->
+        <div class="diapositiva" id="diapo2">
+            <h2>3. Conceptos Clave</h2>
+            <p><strong>Malware:</strong> Cualquier programa malicioso diseñado para dañar un sistema informático.</p>
+            <p><strong>Antivirus:</strong> Software encargado de detectar, bloquear y eliminar amenazas de tu computadora.</p>
+        </div>
+
+    </div>
+
+    <!-- BOTONES ATRÁS Y SIGUIENTE -->
+    <div class="botones-container">
+        <button id="btnAtras" onclick="cambiarDiapo(-1)" disabled>Anterior</button>
+        <button id="btnSig" onclick="cambiarDiapo(1)">Siguiente</button>
+    </div>
+
+    <!-- CÓDIGO DE CONTROL (JAVASCRIPT) -->
+    <script>
+        let indiceActual = 0;
+        const diapositivas = document.querySelectorAll('.diapositiva');
+        const btnAtras = document.getElementById('btnAtras');
+        const btnSig = document.getElementById('btnSig');
+
+        function cambiarDiapo(direccion) {
+            // Ocultar diapositiva actual
+            diapositivas[indiceActual].classList.remove('activa');
+            
+            // Calcular nuevo índice
+            indiceActual += direccion;
+            
+            // Mostrar nueva diapositiva
+            diapositivas[indiceActual].classList.add('activa');
+
+            // Controlar activación de botones
+            btnAtras.disabled = (indiceActual === 0);
+            btnSig.disabled = (indiceActual === diapositivas.length - 1);
+        }
+    </script>
 
 </body>
 </html>
