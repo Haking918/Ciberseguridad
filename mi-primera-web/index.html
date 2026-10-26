@@ -7,7 +7,7 @@
     <style>
         /* CONFIGURACIÓN Y COLORES BASE */
         :root {
-            --bg-principal: #f8fafc; /* Fondo claro y limpio como la referencia */
+            --bg-principal: #f8fafc; 
             --bg-tarjeta: #ffffff;
             --texto-oscuro: #0f172a;
             --texto-mutado: #475569;
@@ -28,39 +28,59 @@
             min-height: 100vh;
         }
 
-        /* CONTENEDOR PRINCIPAL EN DOS COLUMNAS (GRID) */
+        /* CONTENEDOR PRINCIPAL EN DOS COLUMNAS */
         .hero-container {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Divide la pantalla exactamente a la mitad */
-            gap: 40px;
+            grid-template-columns: 1fr 1fr; 
+            gap: 50px;
             max-width: 1200px;
             width: 100%;
-            padding: 40px;
+            padding: 50px;
             box-sizing: border-box;
             background-color: var(--bg-tarjeta);
             border-radius: 24px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
-        /* COLUMNA IZQUIERDA: IMÁGENES ESTILO CÁPSULA COMPUESTA */
-        .columna-imagenes {
+        /* COLUMNA IZQUIERDA: CUADRÍCULA DE LOGOS DE FIREWALLS (FORTINET, SOPHOS, CISCO, SONICWALL) */
+        .columna-marcas {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
             align-items: center;
+            justify-content: center;
         }
 
-        .img-capsula {
-            width: 100%;
-            height: 450px;
-            object-fit: cover;
-            border-radius: 40px; /* Bordes muy redondeados idénticos a tu referencia */
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-            transition: transform 0.4s ease;
+        .tarjeta-marca {
+            background-color: #ffffff;
+            border: 1px solid var(--borde-suave);
+            border-radius: 20px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
         }
 
-        .img-capsula:hover {
-            transform: scale(1.02);
+        .tarjeta-marca:hover {
+            transform: translateY(-5px);
+            border-color: var(--azul-corporativo);
+            box-shadow: 0 10px 20px rgba(2, 132, 199, 0.08);
+        }
+
+        .tarjeta-marca img {
+            max-width: 100%;
+            max-height: 80px;
+            object-fit: contain;
+            filter: grayscale(20%);
+            transition: filter 0.3s ease;
+        }
+
+        .tarjeta-marca:hover img {
+            filter: grayscale(0%);
         }
 
         /* COLUMNA DERECHA: TEXTO Y CONTENIDO CONTEMPORÁNEO */
@@ -68,7 +88,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-right: 20px;
         }
 
         .columna-contenido h1 {
@@ -82,7 +101,7 @@
 
         .descripcion-principal {
             font-size: 1.1rem;
-            color: var(--texto-mutated);
+            color: var(--texto-mutado);
             line-height: 1.6;
             margin: 0 0 35px 0;
         }
@@ -93,18 +112,18 @@
             grid-template-columns: 1fr;
             gap: 24px;
             margin-bottom: 35px;
+            min-height: 120px; /* Evita que el botón salte al cambiar de texto */
         }
 
-        /* Control dinámico de las amenazas activas */
         .amenaza-item {
-            display: none; /* Ocultas por defecto para el control del Slider */
+            display: none; 
             align-items: flex-start;
             gap: 16px;
             animation: slideIn 0.4s ease-out;
         }
 
         .amenaza-item.activa {
-            display: flex; /* Solo se muestra la que tenga la clase activa */
+            display: flex; 
         }
 
         @keyframes slideIn {
@@ -112,7 +131,7 @@
             to { opacity: 1; transform: translateX(0); }
         }
 
-        /* Iconos circulares azules de la segunda imagen */
+        /* Iconos circulares azules estilo Cointic */
         .icono-circular {
             background-color: var(--azul-corporativo);
             color: white;
@@ -125,7 +144,7 @@
             justify-content: center;
             font-weight: bold;
             font-size: 1.2rem;
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
         }
 
         .texto-servicio h3 {
@@ -155,16 +174,16 @@
             padding: 14px 32px;
             font-size: 1rem;
             font-weight: 600;
-            border-radius: 50px; /* Forma de píldora idéntica al botón "Más Información" */
+            border-radius: 50px; 
             cursor: pointer;
-            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.2);
             transition: all 0.3s ease;
         }
 
         .btn-pildora:hover:not(:disabled) {
             background-color: var(--azul-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.5);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.3);
         }
 
         .btn-pildora:disabled {
@@ -174,24 +193,20 @@
             box-shadow: none;
         }
 
-        /* RESPONSIVO: Se adapta perfectamente a celulares si achicas la pantalla */
+        /* DISEÑO RESPONSIVO PARA MÓVILES */
         @media (max-width: 968px) {
             .hero-container {
                 grid-template-columns: 1fr;
-                padding: 20px;
-                margin: 20px;
+                padding: 24px;
             }
-            .columna-imagenes {
-                order: 2; /* Pasa las imágenes abajo en móviles */
-            }
-            .img-capsula {
-                height: 300px;
+            .columna-marcas {
+                order: 2; 
             }
             .columna-contenido {
                 order: 1;
             }
             .columna-contenido h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -200,16 +215,30 @@
 
     <div class="hero-container">
         
-        <!-- COLUMNA IZQUIERDA: DISEÑO VISUAL ASIMÉTRICO PREMIUM -->
-        <div class="columna-imagenes">
-            <img src="https://unsplash.com" alt="Ciberseguridad Analítica" class="img-capsula">
-            <img src="https://unsplash.com" alt="Servidores de Red" class="img-capsula">
+        <!-- COLUMNA IZQUIERDA: LOGOTIPOS REALES DE FIREWALLS CORPORATIVOS -->
+        <div class="columna-marcas">
+            <!-- Fortinet -->
+            <div class="tarjeta-marca">
+                <img src="https://wikimedia.org" alt="Fortinet Firewall">
+            </div>
+            <!-- Sophos -->
+            <div class="tarjeta-marca">
+                <img src="https://wikimedia.org" alt="Sophos Security">
+            </div>
+            <!-- Cisco -->
+            <div class="tarjeta-marca">
+                <img src="https://wikimedia.org" alt="Cisco Systems">
+            </div>
+            <!-- SonicWall -->
+            <div class="tarjeta-marca">
+                <img src="https://wikimedia.org" alt="SonicWall Firewall">
+            </div>
         </div>
 
         <!-- COLUMNA DERECHA: TEXTOS E INTERACTIVIDAD DE DIAPOSITIVAS -->
         <div class="columna-contenido">
             <h1>Portal de Ciberseguridad</h1>
-            <p class="descripcion-principal">Brindamos el conocimiento y las herramientas profesionales para mantener tu infraestructura y entorno digital operando de forma completamente segura, estable y protegida.</p>
+            <p class="descripcion-principal">Brindamos el conocimiento y las herramientas profesionales para mantener tu infraestructura y entorno digital operando de forma completamente segura, estable y protegida con firewalls de última generación.</p>
 
             <!-- CONTENEDOR DINÁMICO DE TU INFORMACIÓN -->
             <div class="servicios-grid">
@@ -243,7 +272,7 @@
 
             </div>
 
-            <!-- BOTONES ESTILIZADOS EN CÁPSULA (Controlan la transición) -->
+            <!-- BOTONES ESTILIZADOS EN CÁPSULA -->
             <div class="controles-inferiores">
                 <button id="btnAtras" class="btn-pildora" onclick="cambiarDiapo(-1)" disabled>Anterior</button>
                 <button id="btnSig" class="btn-pildora" onclick="cambiarDiapo(1)">Siguiente Amenaza</button>
@@ -252,29 +281,3 @@
         </div>
 
     </div>
-
-    <!-- SCRIPT DE LOGICA DE INTERRUPTOR -->
-    <script>
-        let indiceActual = 0;
-        const amenazas = document.querySelectorAll('.amenaza-item');
-        const btnAtras = document.getElementById('btnAtras');
-        const btnSig = document.getElementById('btnSig');
-
-        function cambiarDiapo(direccion) {
-            // Oculta el elemento de texto activo actual
-            amenazas[indiceActual].classList.remove('activa');
-            
-            // Calcula el nuevo índice basado en el clic
-            indiceActual += direccion;
-            
-            // Aplica visibilidad al nuevo elemento seleccionado
-            amenazas[indiceActual].classList.add('activa');
-            
-            // Controla los límites de los botones para que no causen error al inicio/final
-            btnAtras.disabled = (indiceActual === 0);
-            btnSig.disabled = (indiceActual === amenazas.length - 1);
-        }
-    </script>
-
-</body>
-</html>
