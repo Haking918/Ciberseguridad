@@ -13,6 +13,7 @@
             --texto-mutado: #475569;
             --azul-corporativo: #0284c7;
             --azul-hover: #0369a1;
+            --azul-tenue: #f0f9ff;
             --borde-suave: #e2e8f0;
         }
 
@@ -72,7 +73,6 @@
             box-shadow: 0 10px 20px rgba(2, 132, 199, 0.08);
         }
 
-        /* ESTILOS PARA LOS LOGOS EN CÓDIGO NATIVO */
         .logo-grafico {
             width: 60px;
             height: 60px;
@@ -118,7 +118,7 @@
             grid-template-columns: 1fr;
             gap: 24px;
             margin-bottom: 35px;
-            min-height: 120px;
+            min-height: 160px; /* Incrementado para dar espacio al link de información */
         }
 
         .amenaza-item {
@@ -159,13 +159,32 @@
         }
 
         .texto-servicio p {
-            margin: 0;
+            margin: 0 0 14px 0;
             color: var(--texto-mutado);
             font-size: 0.95rem;
             line-height: 1.5;
         }
 
-        /* BOTÓN DE ACCIÓN */
+        /* NUEVO ESTILO DE ENLACE TIPO BOTÓN CORTÉS */
+        .btn-informacion {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--azul-tenue);
+            color: var(--azul-corporativo);
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-informacion:hover {
+            background-color: var(--azul-corporativo);
+            color: #ffffff;
+        }
+
+        /* BOTÓN DE ACCIÓN PRINCIPAL */
         .controles-inferiores {
             display: flex;
             align-items: center;
@@ -198,7 +217,6 @@
             box-shadow: none;
         }
 
-        /* DISEÑO RESPONSIVO PARA MÓVILES */
         @media (max-width: 968px) {
             .hero-container {
                 grid-template-columns: 1fr;
@@ -220,10 +238,8 @@
 
     <div class="hero-container">
         
-        <!-- COLUMNA IZQUIERDA: DISEÑOS VECTORIALES INTEGRADOS AL HTML (100% LIBRES DE ERRORES DE CARGA) -->
+        <!-- COLUMNA IZQUIERDA: MARCAS -->
         <div class="columna-marcas">
-            
-            <!-- Fortinet -->
             <div class="tarjeta-marca">
                 <svg class="logo-grafico" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
                     <rect width="24" height="24" rx="12" fill="#DE2A28"/>
@@ -232,7 +248,6 @@
                 <span>Fortinet</span>
             </div>
 
-            <!-- Sophos -->
             <div class="tarjeta-marca">
                 <svg class="logo-grafico" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
                     <path d="M12 2L4 5V11C4 16.55 7.42 21.74 12 23C16.58 21.74 20 16.55 20 11V5L12 2Z" fill="#005493"/>
@@ -241,7 +256,6 @@
                 <span>Sophos</span>
             </div>
 
-            <!-- Cisco Systems -->
             <div class="tarjeta-marca">
                 <svg class="logo-grafico" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
                     <rect x="4" y="14" width="2" height="6" fill="#049FD9" rx="0.5"/>
@@ -254,7 +268,6 @@
                 <span>Cisco Systems</span>
             </div>
 
-            <!-- SonicWall -->
             <div class="tarjeta-marca">
                 <svg class="logo-grafico" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
                     <rect width="24" height="24" rx="6" fill="#E26A25"/>
@@ -262,28 +275,18 @@
                 </svg>
                 <span>SonicWall</span>
             </div>
-
         </div>
 
-        <!-- COLUMNA DERECHA: TEXTOS E INTERACTIVIDAD DE DIAPOSITIVAS -->
+        <!-- COLUMNA DERECHA: TEXTOS E INTERACTIVIDAD CON ENLACES DINÁMICOS -->
         <div class="columna-contenido">
             <h1>Portal de Ciberseguridad</h1>
             <p class="descripcion-principal">Brindamos el conocimiento y las herramientas profesionales para mantener tu infraestructura y entorno digital operando de forma completamente segura, estable y protegida con firewalls de última generación.</p>
 
-            <!-- CONTENEDOR DINÁMICO DE TU INFORMACIÓN -->
             <div class="servicios-grid">
                 
-                <!-- Diapositiva 1 -->
+                <!-- Diapositiva 1 con Enlace -->
                 <div class="amenaza-item activa">
                     <div class="icono-circular">🛡️</div>
                     <div class="texto-servicio">
                         <h3>1. Phishing (Estafas por Suplantación)</h3>
                         <p>Correos o mensajes fraudulentos meticulosamente diseñados para simular ser de tu banco con la única finalidad de interceptar tus claves de acceso y datos privados.</p>
-                    </div>
-                </div>
-
-                <!-- Diapositiva 2 -->
-                <div class="amenaza-item">
-                    <div class="icono-circular">🔑</div>
-                    <div class="texto-servicio">
-                        <h3>2. Criptografía Avanzada</h3>
