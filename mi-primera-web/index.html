@@ -5,216 +5,274 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal de Ciberseguridad</title>
     <style>
-        /* ESTILOS BASE */
+        /* CONFIGURACIÓN Y COLORES BASE */
+        :root {
+            --bg-principal: #f8fafc; /* Fondo claro y limpio como la referencia */
+            --bg-tarjeta: #ffffff;
+            --texto-oscuro: #0f172a;
+            --texto-mutado: #475569;
+            --azul-corporativo: #0284c7;
+            --azul-hover: #0369a1;
+            --borde-suave: #e2e8f0;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-principal);
+            color: var(--texto-oscuro);
             margin: 0;
-            padding: 20px;
+            padding: 0;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* CONTENEDOR PRINCIPAL EN DOS COLUMNAS (GRID) */
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Divide la pantalla exactamente a la mitad */
+            gap: 40px;
+            max-width: 1200px;
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+            background-color: var(--bg-tarjeta);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* COLUMNA IZQUIERDA: IMÁGENES ESTILO CÁPSULA COMPUESTA */
+        .columna-imagenes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
             align-items: center;
         }
 
-        h1 {
-            color: #38bdf8;
-            text-align: center;
-            margin-bottom: 5px;
-        }
-
-        .subtitle {
-            color: #94a3b8;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        /* DISEÑO DE LAS DIAPOSITIVAS */
-        .slider-container {
+        .img-capsula {
             width: 100%;
-            max-width: 600px;
-            background-color: #1e293b;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            border: 1px solid #334155;
-            min-height: 220px;
-            box-sizing: border-box;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 40px; /* Bordes muy redondeados idénticos a tu referencia */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            transition: transform 0.4s ease;
         }
 
-        .diapositiva { display: none; }
-        .activa { display: block; }
-
-        h2 {
-            color: #38bdf8;
-            margin-top: 0;
-            border-bottom: 2px solid #334155;
-            padding-bottom: 10px;
+        .img-capsula:hover {
+            transform: scale(1.02);
         }
 
-        /* BOTONES DE LAS DIAPOSITIVAS */
-        .botones-container {
+        /* COLUMNA DERECHA: TEXTO Y CONTENIDO CONTEMPORÁNEO */
+        .columna-contenido {
             display: flex;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 600px;
-            margin-top: 15px;
-            margin-bottom: 50px;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 20px;
         }
 
-        button {
-            background-color: #38bdf8;
-            color: #0f172a;
-            border: none;
-            padding: 10px 20px;
+        .columna-contenido h1 {
+            font-size: 2.8rem;
+            color: var(--texto-oscuro);
+            margin: 0 0 15px 0;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .descripcion-principal {
+            font-size: 1.1rem;
+            color: var(--texto-mutated);
+            line-height: 1.6;
+            margin: 0 0 35px 0;
+        }
+
+        /* SECCIÓN DE AMENAZAS / SERVICIOS (ICONOS ALINEADOS) */
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 35px;
+        }
+
+        /* Control dinámico de las amenazas activas */
+        .amenaza-item {
+            display: none; /* Ocultas por defecto para el control del Slider */
+            align-items: flex-start;
+            gap: 16px;
+            animation: slideIn 0.4s ease-out;
+        }
+
+        .amenaza-item.activa {
+            display: flex; /* Solo se muestra la que tenga la clase activa */
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Iconos circulares azules de la segunda imagen */
+        .icono-circular {
+            background-color: var(--azul-corporativo);
+            color: white;
+            min-width: 48px;
+            max-width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
         }
 
-        button:hover { background-color: #0ea5e9; }
-        button:disabled {
-            background-color: #475569;
+        .texto-servicio h3 {
+            margin: 0 0 6px 0;
+            font-size: 1.2rem;
+            color: var(--texto-oscuro);
+        }
+
+        .texto-servicio p {
+            margin: 0;
+            color: var(--texto-mutado);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* BOTÓN DE ACCIÓN ESTILO PÍLDORA INTERACTIVO */
+        .controles-inferiores {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-pildora {
+            background-color: var(--azul-corporativo);
+            color: #ffffff;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px; /* Forma de píldora idéntica al botón "Más Información" */
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-pildora:hover:not(:disabled) {
+            background-color: var(--azul-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.5);
+        }
+
+        .btn-pildora:disabled {
+            background-color: #cbd5e1;
             color: #94a3b8;
             cursor: not-allowed;
+            box-shadow: none;
         }
 
-        /* NUEVO: DISEÑO DE TARJETAS CON IMÁGENES (GRID) */
-        .seccion-titulo {
-            color: #38bdf8;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .grid-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            justify-content: center;
-            max-width: 1000px;
-            width: 100%;
-        }
-
-        .tarjeta {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 12px;
-            overflow: hidden;
-            width: 280px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-        }
-
-        /* Efecto al pasar el ratón por encima */
-        .tarjeta:hover {
-            transform: translateY(-5px);
-            border-color: #38bdf8;
-        }
-
-        /* Estilo para las imágenes */
-        .tarjeta img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-        }
-
-        /* Contenido de texto de la tarjeta */
-        .tarjeta-info {
-            padding: 15px;
-        }
-
-        .tarjeta-info h3 {
-            margin: 0 0 10px 0;
-            color: #38bdf8;
-            font-size: 18px;
-        }
-
-        .tarjeta-info p {
-            margin: 0;
-            font-size: 14px;
-            color: #cbd5e1;
-            line-height: 1.5;
+        /* RESPONSIVO: Se adapta perfectamente a celulares si achicas la pantalla */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                margin: 20px;
+            }
+            .columna-imagenes {
+                order: 2; /* Pasa las imágenes abajo en móviles */
+            }
+            .img-capsula {
+                height: 300px;
+            }
+            .columna-contenido {
+                order: 1;
+            }
+            .columna-contenido h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1>Portal de Ciberseguridad</h1>
-    <p class="subtitle">Aprende a proteger tu entorno digital paso a paso.</p>
-
-    <!-- BLOQUE 1: DIAPOSITIVAS INTERACTIVAS -->
-    <div class="slider-container">
-        <div class="diapositiva activa">
-            <h2>1. Bienvenida</h2>
-            <p>Bienvenido a mi espacio web dedicado al aprendizaje y protección digital.</p>
-            <p>Usa los botones de abajo para navegar a través de las diapositivas informativas y descubrir cómo mantenerte a salvo en internet.</p>
-        </div>
-        <div class="diapositiva">
-            <h2>2. Consejos Esenciales</h2>
-            <p><strong>Contraseñas:</strong> Deben tener letras, números y símbolos.</p>
-            <p><strong>Doble Factor:</strong> Activa el 2FA en todas tus cuentas importantes para evitar hackeos.</p>
-        </div>
-        <div class="diapositiva">
-            <h2>3. Conceptos Clave</h2>
-            <p><strong>Malware:</strong> Programas maliciosos diseñados para infiltrarse en tu sistema.</p>
-            <p><strong>Antivirus:</strong> Herramientas vitales para escanear y desinfectar archivos dañinos.</p>
-        </div>
-    </div>
-
-    <div class="botones-container">
-        <button id="btnAtras" onclick="cambiarDiapo(-1)" disabled>Anterior</button>
-        <button id="btnSig" onclick="cambiarDiapo(1)">Siguiente</button>
-    </div>
-
-
-    <!-- BLOQUE 2: NUEVA SECCIÓN DE IMÁGENES E INFORMACIÓN -->
-    <h2 class="seccion-titulo">Amenazas Comunes en la Red</h2>
-    
-    <div class="grid-container">
+    <div class="hero-container">
         
-        <!-- Tarjeta 1 -->
-        <div class="tarjeta">
-            <img src="https://unsplash.com" alt="Phishing">
-            <div class="tarjeta-info">
-                <h3>Phishing (Estafas)</h3>
-                <p>Correos o mensajes falsos que simulan ser de tu banco para robar tus contraseñas y datos confidenciales.</p>
-            </div>
+        <!-- COLUMNA IZQUIERDA: DISEÑO VISUAL ASIMÉTRICO PREMIUM -->
+        <div class="columna-imagenes">
+            <img src="https://unsplash.com" alt="Ciberseguridad Analítica" class="img-capsula">
+            <img src="https://unsplash.com" alt="Servidores de Red" class="img-capsula">
         </div>
 
-        <!-- Tarjeta 2 -->
-        <div class="tarjeta">
-            <img src="https://unsplash.com" alt="Hacking">
-            <div class="tarjeta-info">
-                <h3>Criptografía</h3>
-                <p>El arte de proteger la información mediante códigos para que solo las personas autorizadas puedan leerla.</p>
-            </div>
-        </div>
+        <!-- COLUMNA DERECHA: TEXTOS E INTERACTIVIDAD DE DIAPOSITIVAS -->
+        <div class="columna-contenido">
+            <h1>Portal de Ciberseguridad</h1>
+            <p class="descripcion-principal">Brindamos el conocimiento y las herramientas profesionales para mantener tu infraestructura y entorno digital operando de forma completamente segura, estable y protegida.</p>
 
-        <!-- Tarjeta 3 -->
-        <div class="tarjeta">
-            <img src="https://unsplash.com" alt="Seguridad">
-            <div class="tarjeta-info">
-                <h3>Redes Wi-Fi Públicas</h3>
-                <p>Evita conectar tus cuentas bancarias cuando estés en redes abiertas de cafeterías o aeropuertos; son fáciles de espiar.</p>
+            <!-- CONTENEDOR DINÁMICO DE TU INFORMACIÓN -->
+            <div class="servicios-grid">
+                
+                <!-- Diapositiva 1 -->
+                <div class="amenaza-item activa">
+                    <div class="icono-circular">🛡️</div>
+                    <div class="texto-servicio">
+                        <h3>1. Phishing (Estafas por Suplantación)</h3>
+                        <p>Correos o mensajes fraudulentos meticulosamente diseñados para simular ser de tu banco con la única finalidad de interceptar tus claves de acceso y datos privados.</p>
+                    </div>
+                </div>
+
+                <!-- Diapositiva 2 -->
+                <div class="amenaza-item">
+                    <div class="icono-circular">🔑</div>
+                    <div class="texto-servicio">
+                        <h3>2. Criptografía Avanzada</h3>
+                        <p>El uso estratégico de algoritmos matemáticos complejos para encriptar la información digital sensible, garantizando que permanezca completamente ilegible para atacantes.</p>
+                    </div>
+                </div>
+
+                <!-- Diapositiva 3 -->
+                <div class="amenaza-item">
+                    <div class="icono-circular">📡</div>
+                    <div class="texto-servicio">
+                        <h3>3. Amenazas en Wi-Fi Público</h3>
+                        <p>Las redes abiertas de cafeterías y aeropuertos carecen de cifrado nativo robusto. Evita realizar transacciones bancarias o ingresar contraseñas mientras estés conectado a ellas.</p>
+                    </div>
+                </div>
+
             </div>
+
+            <!-- BOTONES ESTILIZADOS EN CÁPSULA (Controlan la transición) -->
+            <div class="controles-inferiores">
+                <button id="btnAtras" class="btn-pildora" onclick="cambiarDiapo(-1)" disabled>Anterior</button>
+                <button id="btnSig" class="btn-pildora" onclick="cambiarDiapo(1)">Siguiente Amenaza</button>
+            </div>
+
         </div>
 
     </div>
 
-    <!-- SCRIPT DE CONTROL -->
+    <!-- SCRIPT DE LOGICA DE INTERRUPTOR -->
     <script>
         let indiceActual = 0;
-        const diapositivas = document.querySelectorAll('.diapositiva');
+        const amenazas = document.querySelectorAll('.amenaza-item');
         const btnAtras = document.getElementById('btnAtras');
         const btnSig = document.getElementById('btnSig');
 
         function cambiarDiapo(direccion) {
-            diapositivas[indiceActual].classList.remove('activa');
+            // Oculta el elemento de texto activo actual
+            amenazas[indiceActual].classList.remove('activa');
+            
+            // Calcula el nuevo índice basado en el clic
             indiceActual += direccion;
-            diapositivas[indiceActual].classList.add('activa');
+            
+            // Aplica visibilidad al nuevo elemento seleccionado
+            amenazas[indiceActual].classList.add('activa');
+            
+            // Controla los límites de los botones para que no causen error al inicio/final
             btnAtras.disabled = (indiceActual === 0);
-            btnSig.disabled = (indiceActual === diapositivas.length - 1);
+            btnSig.disabled = (indiceActual === amenazas.length - 1);
         }
     </script>
 
