@@ -42,7 +42,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
-        /* COLUMNA IZQUIERDA: CUADRÍCULA DE LOGOS DE FIREWALLS (FORTINET, SOPHOS, CISCO, SONICWALL) */
+        /* COLUMNA IZQUIERDA: MARCAS DE FIREWALLS */
         .columna-marcas {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -57,6 +57,7 @@
             border-radius: 20px;
             height: 180px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 20px;
@@ -73,14 +74,19 @@
 
         .tarjeta-marca img {
             max-width: 100%;
-            max-height: 80px;
+            max-height: 70px;
             object-fit: contain;
-            filter: grayscale(20%);
-            transition: filter 0.3s ease;
+            margin-bottom: 10px;
         }
 
-        .tarjeta-marca:hover img {
-            filter: grayscale(0%);
+        .tarjeta-marca span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--texto-mutado);
+        }
+
+        .tarjeta-marca:hover span {
+            color: var(--azul-corporativo);
         }
 
         /* COLUMNA DERECHA: TEXTO Y CONTENIDO CONTEMPORÁNEO */
@@ -106,13 +112,13 @@
             margin: 0 0 35px 0;
         }
 
-        /* SECCIÓN DE AMENAZAS / SERVICIOS (ICONOS ALINEADOS) */
+        /* SECCIÓN DE AMENAZAS / SERVICIOS */
         .servicios-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 24px;
             margin-bottom: 35px;
-            min-height: 120px; /* Evita que el botón salte al cambiar de texto */
+            min-height: 120px;
         }
 
         .amenaza-item {
@@ -131,7 +137,6 @@
             to { opacity: 1; transform: translateX(0); }
         }
 
-        /* Iconos circulares azules estilo Cointic */
         .icono-circular {
             background-color: var(--azul-corporativo);
             color: white;
@@ -160,7 +165,7 @@
             line-height: 1.5;
         }
 
-        /* BOTÓN DE ACCIÓN ESTILO PÍLDORA INTERACTIVO */
+        /* BOTÓN DE ACCIÓN */
         .controles-inferiores {
             display: flex;
             align-items: center;
@@ -215,23 +220,27 @@
 
     <div class="hero-container">
         
-        <!-- COLUMNA IZQUIERDA: LOGOTIPOS REALES DE FIREWALLS CORPORATIVOS -->
+        <!-- COLUMNA IZQUIERDA: LOGOTIPOS REEMPLAZADOS POR ICONOS DE ALTA DISPONIBILIDAD -->
         <div class="columna-marcas">
             <!-- Fortinet -->
             <div class="tarjeta-marca">
-                <img src="https://wikimedia.org" alt="Fortinet Firewall">
+                <img src="https://icons8.com" alt="Fortinet">
+                <span>Fortinet</span>
             </div>
             <!-- Sophos -->
             <div class="tarjeta-marca">
-                <img src="https://wikimedia.org" alt="Sophos Security">
+                <img src="https://icons8.com" alt="Sophos">
+                <span>Sophos</span>
             </div>
             <!-- Cisco -->
             <div class="tarjeta-marca">
-                <img src="https://wikimedia.org" alt="Cisco Systems">
+                <img src="https://icons8.com" alt="Cisco">
+                <span>Cisco Systems</span>
             </div>
             <!-- SonicWall -->
             <div class="tarjeta-marca">
-                <img src="https://wikimedia.org" alt="SonicWall Firewall">
+                <img src="https://icons8.com" alt="SonicWall">
+                <span>SonicWall</span>
             </div>
         </div>
 
