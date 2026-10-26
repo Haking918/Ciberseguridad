@@ -42,7 +42,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
-        /* COLUMNA IZQUIERDA: MARCAS DE FIREWALLS */
+        /* COLUMNA IZQUIERDA: MARCAS DE FIREWALLS CON SVGS INLINE */
         .columna-marcas {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -72,15 +72,14 @@
             box-shadow: 0 10px 20px rgba(2, 132, 199, 0.08);
         }
 
-        .tarjeta-marca img {
-            max-width: 100%;
-            max-height: 70px;
-            object-fit: contain;
-            margin-bottom: 10px;
+        .tarjeta-marca svg {
+            width: auto;
+            height: 60px;
+            margin-bottom: 12px;
         }
 
         .tarjeta-marca span {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: var(--texto-mutado);
         }
@@ -220,28 +219,49 @@
 
     <div class="hero-container">
         
-        <!-- COLUMNA IZQUIERDA: LOGOTIPOS REEMPLAZADOS POR ICONOS DE ALTA DISPONIBILIDAD -->
+        <!-- COLUMNA IZQUIERDA: LOGOTIPOS INTEGRADOS DIRECTAMENTE EN CÓDIGO (NUNCA FALLAN) -->
         <div class="columna-marcas">
+            
             <!-- Fortinet -->
             <div class="tarjeta-marca">
-                <img src="https://icons8.com" alt="Fortinet">
+                <svg viewBox="0 0 100 60" fill="none" xmlns="http://w3.org">
+                    <rect width="100" height="60" rx="8" fill="#DE2A28"/>
+                    <path d="M30 45V15H42V23H38V29H44V35H38V45H30ZM48 23V37C48 42 51 45 56 45C61 45 64 42 64 37V23C64 18 61 15 56 15C51 15 48 18 48 23ZM56 37C56 39 57 40 58 40C59 40 60 39 60 37V23C60 21 59 20 58 20C57 20 56 21 56 23V37ZM68 15H78V21H73V45H68V15Z" fill="white"/>
+                </svg>
                 <span>Fortinet</span>
             </div>
+
             <!-- Sophos -->
             <div class="tarjeta-marca">
-                <img src="https://icons8.com" alt="Sophos">
+                <svg viewBox="0 0 100 60" fill="none" xmlns="http://w3.org">
+                    <rect width="100" height="60" rx="8" fill="#005493"/>
+                    <path d="M50 12C38 15 32 22 32 22V36C32 44 43 49 50 51C57 49 68 44 68 36V22C68 22 62 15 50 12ZM46 38L39 31L42 28L46 32L57 21L60 24L46 38Z" fill="white"/>
+                </svg>
                 <span>Sophos</span>
             </div>
-            <!-- Cisco -->
+
+            <!-- Cisco Systems -->
             <div class="tarjeta-marca">
-                <img src="https://icons8.com" alt="Cisco">
+                <svg viewBox="0 0 100 60" fill="none" xmlns="http://w3.org">
+                    <rect x="22" y="38" width="6" height="12" fill="#049FD9" rx="2"/>
+                    <rect x="32" y="26" width="6" height="24" fill="#049FD9" rx="2"/>
+                    <rect x="42" y="14" width="6" height="36" fill="#049FD9" rx="2"/>
+                    <rect x="52" y="14" width="6" height="36" fill="#049FD9" rx="2"/>
+                    <rect x="62" y="26" width="6" height="24" fill="#049FD9" rx="2"/>
+                    <rect x="72" y="38" width="6" height="12" fill="#049FD9" rx="2"/>
+                </svg>
                 <span>Cisco Systems</span>
             </div>
+
             <!-- SonicWall -->
             <div class="tarjeta-marca">
-                <img src="https://icons8.com" alt="SonicWall">
+                <svg viewBox="0 0 100 60" fill="none" xmlns="http://w3.org">
+                    <rect width="100" height="60" rx="8" fill="#E26A25"/>
+                    <path d="M35 15H42L55 30L42 45H35L48 30L35 15ZM52 15H59L72 30L59 45H52L65 30L52 15Z" fill="white"/>
+                </svg>
                 <span>SonicWall</span>
             </div>
+
         </div>
 
         <!-- COLUMNA DERECHA: TEXTOS E INTERACTIVIDAD DE DIAPOSITIVAS -->
@@ -266,27 +286,3 @@
                     <div class="icono-circular">🔑</div>
                     <div class="texto-servicio">
                         <h3>2. Criptografía Avanzada</h3>
-                        <p>El uso estratégico de algoritmos matemáticos complejos para encriptar la información digital sensible, garantizando que permanezca completamente ilegible para atacantes.</p>
-                    </div>
-                </div>
-
-                <!-- Diapositiva 3 -->
-                <div class="amenaza-item">
-                    <div class="icono-circular">📡</div>
-                    <div class="texto-servicio">
-                        <h3>3. Amenazas en Wi-Fi Público</h3>
-                        <p>Las redes abiertas de cafeterías y aeropuertos carecen de cifrado nativo robusto. Evita realizar transacciones bancarias o ingresar contraseñas mientras estés conectado a ellas.</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- BOTONES ESTILIZADOS EN CÁPSULA -->
-            <div class="controles-inferiores">
-                <button id="btnAtras" class="btn-pildora" onclick="cambiarDiapo(-1)" disabled>Anterior</button>
-                <button id="btnSig" class="btn-pildora" onclick="cambiarDiapo(1)">Siguiente Amenaza</button>
-            </div>
-
-        </div>
-
-    </div>
