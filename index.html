@@ -42,7 +42,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
-        /* COLUMNA IZQUIERDA: MARCAS DE FIREWALLS CON SVGS INLINE */
+        /* COLUMNA IZQUIERDA: MARCAS DE FIREWALLS CON GRAFICOS INTEGRADOS */
         .columna-marcas {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -72,8 +72,9 @@
             box-shadow: 0 10px 20px rgba(2, 132, 199, 0.08);
         }
 
-        .tarjeta-marca svg {
-            width: auto;
+        /* ESTILOS PARA LOS LOGOS EN CÓDIGO NATIVO */
+        .logo-grafico {
+            width: 60px;
             height: 60px;
             margin-bottom: 12px;
         }
@@ -219,45 +220,45 @@
 
     <div class="hero-container">
         
-        <!-- COLUMNA IZQUIERDA: LOGOTIPOS INTEGRADOS DIRECTAMENTE EN CÓDIGO (NUNCA FALLAN) -->
+        <!-- COLUMNA IZQUIERDA: DISEÑOS VECTORIALES INTEGRADOS AL HTML (100% LIBRES DE ERRORES DE CARGA) -->
         <div class="columna-marcas">
             
             <!-- Fortinet -->
             <div class="tarjeta-marca">
-                <svg viewBox="0 0 100 60" fill="none" xmlns="http://w3.org">
-                    <rect width="100" height="60" rx="8" fill="#DE2A28"/>
-                    <path d="M30 45V15H42V23H38V29H44V35H38V45H30ZM48 23V37C48 42 51 45 56 45C61 45 64 42 64 37V23C64 18 61 15 56 15C51 15 48 18 48 23ZM56 37C56 39 57 40 58 40C59 40 60 39 60 37V23C60 21 59 20 58 20C57 20 56 21 56 23V37ZM68 15H78V21H73V45H68V15Z" fill="white"/>
+                <svg class="logo-grafico" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <rect width="24" height="24" rx="12" fill="#DE2A28"/>
+                    <path d="M7 16V8H11V10H9V12H12V14H9V16H7ZM13 10V14C13 15.5 14 16 15.5 16C17 16 18 15.5 18 14V10C18 8.5 17 8 15.5 8C14 8 13 8.5 13 10Z" fill="white"/>
                 </svg>
                 <span>Fortinet</span>
             </div>
 
             <!-- Sophos -->
             <div class="tarjeta-marca">
-                <svg viewBox="0 0 100 60" fill="none" xmlns="http://w3.org">
-                    <rect width="100" height="60" rx="8" fill="#005493"/>
-                    <path d="M50 12C38 15 32 22 32 22V36C32 44 43 49 50 51C57 49 68 44 68 36V22C68 22 62 15 50 12ZM46 38L39 31L42 28L46 32L57 21L60 24L46 38Z" fill="white"/>
+                <svg class="logo-grafico" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <path d="M12 2L4 5V11C4 16.55 7.42 21.74 12 23C16.58 21.74 20 16.55 20 11V5L12 2Z" fill="#005493"/>
+                    <path d="M10 15.5L6.5 12L7.91 10.59L10 12.67L16.09 6.58L17.5 8L10 15.5Z" fill="white"/>
                 </svg>
                 <span>Sophos</span>
             </div>
 
             <!-- Cisco Systems -->
             <div class="tarjeta-marca">
-                <svg viewBox="0 0 100 60" fill="none" xmlns="http://w3.org">
-                    <rect x="22" y="38" width="6" height="12" fill="#049FD9" rx="2"/>
-                    <rect x="32" y="26" width="6" height="24" fill="#049FD9" rx="2"/>
-                    <rect x="42" y="14" width="6" height="36" fill="#049FD9" rx="2"/>
-                    <rect x="52" y="14" width="6" height="36" fill="#049FD9" rx="2"/>
-                    <rect x="62" y="26" width="6" height="24" fill="#049FD9" rx="2"/>
-                    <rect x="72" y="38" width="6" height="12" fill="#049FD9" rx="2"/>
+                <svg class="logo-grafico" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <rect x="4" y="14" width="2" height="6" fill="#049FD9" rx="0.5"/>
+                    <rect x="7" y="10" width="2" height="10" fill="#049FD9" rx="0.5"/>
+                    <rect x="10" y="6" width="2" height="14" fill="#049FD9" rx="0.5"/>
+                    <rect x="13" y="6" width="2" height="14" fill="#049FD9" rx="0.5"/>
+                    <rect x="16" y="10" width="2" height="10" fill="#049FD9" rx="0.5"/>
+                    <rect x="19" y="14" width="2" height="6" fill="#049FD9" rx="0.5"/>
                 </svg>
                 <span>Cisco Systems</span>
             </div>
 
             <!-- SonicWall -->
             <div class="tarjeta-marca">
-                <svg viewBox="0 0 100 60" fill="none" xmlns="http://w3.org">
-                    <rect width="100" height="60" rx="8" fill="#E26A25"/>
-                    <path d="M35 15H42L55 30L42 45H35L48 30L35 15ZM52 15H59L72 30L59 45H52L65 30L52 15Z" fill="white"/>
+                <svg class="logo-grafico" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <rect width="24" height="24" rx="6" fill="#E26A25"/>
+                    <path d="M7 7H9.5L14.5 12L9.5 17H7L12 12L7 7ZM13 7H15.5L20.5 12L15.5 17H13L18 12L13 7Z" fill="white"/>
                 </svg>
                 <span>SonicWall</span>
             </div>
