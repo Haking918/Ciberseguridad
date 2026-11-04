@@ -1,292 +1,640 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Ciberseguridad</title>
-    <style>
-        /* CONFIGURACIÓN Y COLORES BASE */
-        :root {
-            --bg-principal: #f8fafc; 
-            --bg-tarjeta: #ffffff;
-            --texto-oscuro: #0f172a;
-            --texto-mutado: #475569;
-            --azul-corporativo: #0284c7;
-            --azul-hover: #0369a1;
-            --azul-tenue: #f0f9ff;
-            --borde-suave: #e2e8f0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal de Ciberseguridad</title>
 
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-principal);
-            color: var(--texto-oscuro);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+<style>
+:root {
+    --azul: #0284c7;
+    --oscuro: #071426;
+    --fondo: #f1f5f9;
+    --texto: #1e293b;
+}
 
-        /* CONTENEDOR PRINCIPAL EN DOS COLUMNAS */
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr; 
-            gap: 50px;
-            max-width: 1200px;
-            width: 100%;
-            padding: 50px;
-            box-sizing: border-box;
-            background-color: var(--bg-tarjeta);
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* COLUMNA IZQUIERDA: MARCAS DE FIREWALLS CON GRAFICOS INTEGRADOS */
-        .columna-marcas {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            align-items: center;
-            justify-content: center;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .tarjeta-marca {
-            background-color: #ffffff;
-            border: 1px solid var(--borde-suave);
-            border-radius: 20px;
-            height: 180px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            box-sizing: border-box;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            transition: all 0.3s ease;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+}
 
-        .tarjeta-marca:hover {
-            transform: translateY(-5px);
-            border-color: var(--azul-corporativo);
-            box-shadow: 0 10px 20px rgba(2, 132, 199, 0.08);
-        }
+/* MENU */
 
-        .logo-grafico {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 12px;
-        }
+header {
+    background: var(--oscuro);
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
 
-        .tarjeta-marca span {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--texto-mutado);
-        }
+.logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
 
-        .tarjeta-marca:hover span {
-            color: var(--azul-corporativo);
-        }
+.logo span {
+    color: #38bdf8;
+}
 
-        /* COLUMNA DERECHA: TEXTO Y CONTENIDO CONTEMPORÁNEO */
-        .columna-contenido {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+nav {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
 
-        .columna-contenido h1 {
-            font-size: 2.8rem;
-            color: var(--texto-oscuro);
-            margin: 0 0 15px 0;
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
 
-        .descripcion-principal {
-            font-size: 1.1rem;
-            color: var(--texto-mutado);
-            line-height: 1.6;
-            margin: 0 0 35px 0;
-        }
+nav a:hover {
+    color: #38bdf8;
+}
 
-        /* SECCIÓN DE AMENAZAS / SERVICIOS */
-        .servicios-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-            margin-bottom: 35px;
-            min-height: 160px; /* Incrementado para dar espacio al link de información */
-        }
+/* PORTADA */
 
-        .amenaza-item {
-            display: none; 
-            align-items: flex-start;
-            gap: 16px;
-            animation: slideIn 0.4s ease-out;
-        }
+.hero {
+    min-height: 560px;
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    background:
+    linear-gradient(90deg, rgba(7,20,38,.98), rgba(7,20,38,.75)),
+    url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1800&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
 
-        .amenaza-item.activa {
-            display: flex; 
-        }
+.hero-content {
+    max-width: 700px;
+}
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(10px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
+.etiqueta {
+    display: inline-block;
+    color: #7dd3fc;
+    background: rgba(2,132,199,.18);
+    padding: 10px 18px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+}
 
-        .icono-circular {
-            background-color: var(--azul-corporativo);
-            color: white;
-            min-width: 48px;
-            max-width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
-        }
+.hero h1 {
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
 
-        .texto-servicio h3 {
-            margin: 0 0 6px 0;
-            font-size: 1.2rem;
-            color: var(--texto-oscuro);
-        }
+.hero h1 span {
+    color: #38bdf8;
+}
 
-        .texto-servicio p {
-            margin: 0 0 14px 0;
-            color: var(--texto-mutado);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
+.hero p {
+    color: #cbd5e1;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
 
-        /* NUEVO ESTILO DE ENLACE TIPO BOTÓN CORTÉS */
-        .btn-informacion {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--azul-tenue);
-            color: var(--azul-corporativo);
-            text-decoration: none;
-            padding: 8px 16px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border-radius: 20px;
-            transition: all 0.2s ease;
-        }
+.btn {
+    display: inline-block;
+    padding: 15px 28px;
+    border-radius: 8px;
+    background: var(--azul);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
 
-        .btn-informacion:hover {
-            background-color: var(--azul-corporativo);
-            color: #ffffff;
-        }
+.btn:hover {
+    background: #0369a1;
+    transform: translateY(-3px);
+}
 
-        /* BOTÓN DE ACCIÓN PRINCIPAL */
-        .controles-inferiores {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+.btn-secundario {
+    background: transparent;
+    border: 1px solid #38bdf8;
+    margin-left: 10px;
+}
 
-        .btn-pildora {
-            background-color: var(--azul-corporativo);
-            color: #ffffff;
-            border: none;
-            padding: 14px 32px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 50px; 
-            cursor: pointer;
-            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.2);
-            transition: all 0.3s ease;
-        }
+/* MARCAS */
 
-        .btn-pildora:hover:not(:disabled) {
-            background-color: var(--azul-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.3);
-        }
+.marcas {
+    padding: 55px 7%;
+    text-align: center;
+    background: white;
+}
 
-        .btn-pildora:disabled {
-            background-color: #cbd5e1;
-            color: #94a3b8;
-            cursor: not-allowed;
-            box-shadow: none;
-        }
+.marcas h2 {
+    margin-bottom: 30px;
+    color: var(--oscuro);
+}
 
-        @media (max-width: 968px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                padding: 24px;
-            }
-            .columna-marcas {
-                order: 2; 
-            }
-            .columna-contenido {
-                order: 1;
-            }
-            .columna-contenido h1 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
+.marcas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.marca {
+    padding: 28px 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #475569;
+    transition: .3s;
+}
+
+.marca:hover {
+    transform: translateY(-5px);
+    color: var(--azul);
+    box-shadow: 0 8px 25px #00000010;
+}
+
+/* SERVICIOS */
+
+.seccion {
+    padding: 80px 7%;
+    text-align: center;
+}
+
+.seccion h2 {
+    font-size: 32px;
+    color: var(--oscuro);
+    margin-bottom: 15px;
+}
+
+.subtitulo {
+    color: #64748b;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.servicios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    text-align: left;
+}
+
+.tarjeta {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #e2e8f0;
+    transition: .3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 30px #00000010;
+}
+
+.icono {
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.tarjeta h3 {
+    margin-bottom: 15px;
+    color: var(--oscuro);
+}
+
+.tarjeta p {
+    color: #64748b;
+    line-height: 1.7;
+}
+
+/* CARRUSEL */
+
+.carrusel {
+    background: var(--oscuro);
+    padding: 65px 7%;
+    color: white;
+    text-align: center;
+}
+
+.carrusel h2 {
+    margin-bottom: 30px;
+}
+
+.slide {
+    display: none;
+    max-width: 750px;
+    margin: auto;
+    padding: 30px;
+    animation: aparecer .6s;
+}
+
+.slide.activo {
+    display: block;
+}
+
+.slide h3 {
+    color: #38bdf8;
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.slide p {
+    color: #cbd5e1;
+    line-height: 1.8;
+}
+
+.controles {
+    margin-top: 25px;
+}
+
+.controles button {
+    background: #0284c7;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.puntos {
+    margin-top: 20px;
+}
+
+.punto {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #64748b;
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.punto.activo {
+    background: #38bdf8;
+}
+
+@keyframes aparecer {
+    from {opacity: 0; transform: translateY(15px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* CONTACTO */
+
+.contacto {
+    padding: 75px 7%;
+    text-align: center;
+    background: white;
+}
+
+.contacto p {
+    color: #64748b;
+    margin: 20px 0 30px;
+    line-height: 1.7;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--oscuro);
+    color: #cbd5e1;
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+}
+
+/* WHATSAPP */
+
+.whatsapp {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 62px;
+    height: 62px;
+    background: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    text-decoration: none;
+    box-shadow: 0 5px 20px #0003;
+    z-index: 1000;
+    transition: .3s;
+}
+
+.whatsapp:hover {
+    transform: scale(1.12);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 850px) {
+    .servicios {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .marcas-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        justify-content: center;
+    }
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+    .hero {
+        padding: 65px 7%;
+    }
+    .servicios {
+        grid-template-columns: 1fr;
+    }
+    .btn-secundario {
+        margin: 12px 0 0;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="hero-container">
-        
-        <!-- COLUMNA IZQUIERDA: MARCAS -->
-        <div class="columna-marcas">
-            <div class="tarjeta-marca">
-                <svg class="logo-grafico" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
-                    <rect width="24" height="24" rx="12" fill="#DE2A28"/>
-                    <path d="M7 16V8H11V10H9V12H12V14H9V16H7ZM13 10V14C13 15.5 14 16 15.5 16C17 16 18 15.5 18 14V10C18 8.5 17 8 15.5 8C14 8 13 8.5 13 10Z" fill="white"/>
-                </svg>
-                <span>Fortinet</span>
-            </div>
+<header>
+    <div class="logo">CYBER<span>SECURITY</span></div>
 
-            <div class="tarjeta-marca">
-                <svg class="logo-grafico" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
-                    <path d="M12 2L4 5V11C4 16.55 7.42 21.74 12 23C16.58 21.74 20 16.55 20 11V5L12 2Z" fill="#005493"/>
-                    <path d="M10 15.5L6.5 12L7.91 10.59L10 12.67L16.09 6.58L17.5 8L10 15.5Z" fill="white"/>
-                </svg>
-                <span>Sophos</span>
-            </div>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#marcas">Tecnologías</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#amenazas">Amenazas</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
 
-            <div class="tarjeta-marca">
-                <svg class="logo-grafico" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
-                    <rect x="4" y="14" width="2" height="6" fill="#049FD9" rx="0.5"/>
-                    <rect x="7" y="10" width="2" height="10" fill="#049FD9" rx="0.5"/>
-                    <rect x="10" y="6" width="2" height="14" fill="#049FD9" rx="0.5"/>
-                    <rect x="13" y="6" width="2" height="14" fill="#049FD9" rx="0.5"/>
-                    <rect x="16" y="10" width="2" height="10" fill="#049FD9" rx="0.5"/>
-                    <rect x="19" y="14" width="2" height="6" fill="#049FD9" rx="0.5"/>
-                </svg>
-                <span>Cisco Systems</span>
-            </div>
+<!-- PORTADA -->
 
-            <div class="tarjeta-marca">
-                <svg class="logo-grafico" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
-                    <rect width="24" height="24" rx="6" fill="#E26A25"/>
-                    <path d="M7 7H9.5L14.5 12L9.5 17H7L12 12L7 7ZM13 7H15.5L20.5 12L15.5 17H13L18 12L13 7Z" fill="white"/>
-                </svg>
-                <span>SonicWall</span>
-            </div>
+<section class="hero" id="inicio">
+    <div class="hero-content">
+        <div class="etiqueta">🛡️ Protección digital profesional</div>
+
+        <h1>
+            Protegemos tu mundo <span>digital</span>
+        </h1>
+
+        <p>
+            Soluciones profesionales de ciberseguridad,
+            protección de redes, firewalls y prevención
+            de amenazas informáticas para empresas y usuarios.
+        </p>
+
+        <a href="#servicios" class="btn">Conocer servicios</a>
+
+        <a href="#contacto" class="btn btn-secundario">
+            Contactar
+        </a>
+    </div>
+</section>
+
+<!-- MARCAS -->
+
+<section class="marcas" id="marcas">
+    <h2>Tecnologías de seguridad</h2>
+
+    <div class="marcas-grid">
+        <div class="marca">🔴 Fortinet</div>
+        <div class="marca">🛡️ Sophos</div>
+        <div class="marca">🌐 Cisco</div>
+        <div class="marca">🟠 SonicWall</div>
+    </div>
+</section>
+
+<!-- SERVICIOS -->
+
+<section class="seccion" id="servicios">
+
+    <h2>Nuestras soluciones</h2>
+
+    <p class="subtitulo">
+        Tecnología y seguridad para mantener protegida
+        tu infraestructura informática.
+    </p>
+
+    <div class="servicios">
+
+        <div class="tarjeta">
+            <div class="icono">🔥</div>
+            <h3>Firewalls empresariales</h3>
+            <p>
+                Protección perimetral de redes mediante
+                tecnologías avanzadas de seguridad y
+                control del tráfico.
+            </p>
         </div>
 
-        <!-- COLUMNA DERECHA: TEXTOS E INTERACTIVIDAD CON ENLACES DINÁMICOS -->
-        <div class="columna-contenido">
-            <h1>Portal de Ciberseguridad</h1>
-            <p class="descripcion-principal">Brindamos el conocimiento y las herramientas profesionales para mantener tu infraestructura y entorno digital operando de forma completamente segura, estable y protegida con firewalls de última generación.</p>
+        <div class="tarjeta">
+            <div class="icono">🌐</div>
+            <h3>Seguridad de redes</h3>
+            <p>
+                Protección de infraestructura, conexiones,
+                dispositivos y redes empresariales.
+            </p>
+        </div>
 
-            <div class="servicios-grid">
-                
-                <!-- Diapositiva 1 con Enlace -->
-                <div class="amenaza-item activa">
-                    <div class="icono-circular">🛡️</div>
-                    <div class="texto-servicio">
-                        <h3>1. Phishing (Estafas por Suplantación)</h3>
-                        <p>Correos o mensajes fraudulentos meticulosamente diseñados para simular ser de tu banco con la única finalidad de interceptar tus claves de acceso y datos privados.</p>
+        <div class="tarjeta">
+            <div class="icono">🔒</div>
+            <h3>Protección de datos</h3>
+            <p>
+                Medidas de seguridad para mantener la
+                confidencialidad e integridad de tu información.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🛡️</div>
+            <h3>Antivirus y protección</h3>
+            <p>
+                Soluciones para detectar, prevenir y
+                responder ante amenazas informáticas.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">📡</div>
+            <h3>Monitoreo de redes</h3>
+            <p>
+                Supervisión de infraestructura para
+                identificar comportamientos inusuales.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">💻</div>
+            <h3>Asesoría tecnológica</h3>
+            <p>
+                Orientación para implementar mejores
+                prácticas de seguridad informática.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CARRUSEL DE AMENAZAS -->
+
+<section class="carrusel" id="amenazas">
+
+    <h2>Conoce las amenazas digitales</h2>
+
+    <div class="slide activo">
+        <div class="icono">🎣</div>
+        <h3>Phishing</h3>
+        <p>
+            Correos electrónicos y mensajes fraudulentos
+            que intentan suplantar instituciones o empresas
+            para obtener contraseñas y datos personales.
+        </p>
+    </div>
+
+    <div class="slide">
+        <div class="icono">🦠</div>
+        <h3>Ransomware</h3>
+        <p>
+            Software malicioso que bloquea o cifra archivos
+            y exige un pago para intentar recuperarlos.
+        </p>
+    </div>
+
+    <div class="slide">
+        <div class="icono">🔓</div>
+        <h3>Robo de credenciales</h3>
+        <p>
+            Acceso no autorizado a cuentas mediante
+            contraseñas comprometidas o engaños.
+        </p>
+    </div>
+
+    <div class="slide">
+        <div class="icono">⚠️</div>
+        <h3>Malware</h3>
+        <p>
+            Programas diseñados para dañar dispositivos,
+            robar información o comprometer sistemas.
+        </p>
+    </div>
+
+    <div class="controles">
+        <button onclick="cambiar(-1)">❮ Anterior</button>
+        <button onclick="cambiar(1)">Siguiente ❯</button>
+    </div>
+
+    <div class="puntos" id="puntos"></div>
+
+</section>
+
+<!-- CONTACTO -->
+
+<section class="contacto" id="contacto">
+
+    <h2>¿Necesitas proteger tu empresa?</h2>
+
+    <p>
+        Contáctanos para conocer soluciones de seguridad
+        adaptadas a las necesidades de tu infraestructura.
+    </p>
+
+    <a class="btn"
+       href="https://wa.me/5215512345678?text=Hola,%20deseo%20informacion%20sobre%20ciberseguridad"
+       target="_blank" rel="noopener noreferrer">
+       Solicitar información por WhatsApp
+    </a>
+
+</section>
+
+<footer>
+    <p>© 2026 Portal de Ciberseguridad | Todos los derechos reservados.</p>
+    <p>Seguridad • Tecnología • Protección Digital</p>
+</footer>
+
+<!-- BOTON FLOTANTE WHATSAPP -->
+
+<a class="whatsapp"
+   href="https://wa.me/5215512345678?text=Hola,%20deseo%20informacion"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Contactar por WhatsApp">
+   ☎
+</a>
+
+<script>
+
+let indice = 0;
+
+const slides = document.querySelectorAll(".slide");
+const puntos = document.getElementById("puntos");
+
+slides.forEach((slide, i) => {
+    const punto = document.createElement("span");
+    punto.className = "punto";
+    punto.onclick = () => mostrar(i);
+    puntos.appendChild(punto);
+});
+
+const indicadores = document.querySelectorAll(".punto");
+
+function mostrar(n) {
+    slides[indice].classList.remove("activo");
+    indicadores[indice].classList.remove("activo");
+
+    indice = (n + slides.length) % slides.length;
+
+    slides[indice].classList.add("activo");
+    indicadores[indice].classList.add("activo");
+}
+
+function cambiar(direccion) {
+    mostrar(indice + direccion);
+}
+
+mostrar(0);
+
+let temporizador = setInterval(() => {
+    cambiar(1);
+}, 5000);
+
+document.querySelector(".carrusel").addEventListener("mouseenter", () => {
+    clearInterval(temporizador);
+});
+
+document.querySelector(".carrusel").addEventListener("mouseleave", () => {
+    clearInterval(temporizador);
+    temporizador = setInterval(() => {
+        cambiar(1);
+    }, 5000);
+});
+
+</script>
+
+</body>
+</html>
