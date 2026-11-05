@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CYBERSECURITY | Seguridad Empresarial</title>
+<title>CYBERSECURITY | Soluciones de Ciberseguridad y Redes Empresariales</title>
 
-<meta name="description" content="Soluciones profesionales de ciberseguridad, firewalls empresariales, protección de redes e infraestructura tecnológica.">
+<meta name="description" content="Soluciones profesionales de ciberseguridad, firewalls empresariales, switches, access points y protección de redes corporativas.">
 
 <style>
 :root {
@@ -189,8 +189,8 @@ section {
     max-width: 1200px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(245px,1fr));
-    gap: 23px;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 25px;
 }
 
 .card {
@@ -252,6 +252,29 @@ section {
     background: linear-gradient(180deg,#081a34,#0b2850);
 }
 
+/* MARCAS MEJORADAS CON LOGOS E IMÁGENES */
+.brand-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.brand-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.brand-logo {
+    max-height: 40px;
+    max-width: 130px;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
 .brand-label {
     display: inline-block;
     color: #a9d8ff;
@@ -261,30 +284,33 @@ section {
     border-radius: 30px;
     font-size: 11px;
     font-weight: bold;
-    margin-bottom: 14px;
 }
 
-.brand-card {
-    min-height: 100%;
+.product-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
-.brand-card .icon {
-    font-size: 25px;
+.catalog-list {
+    background: rgba(8, 29, 59, 0.6);
+    border-radius: 8px;
+    padding: 12px;
+    margin: 15px 0;
 }
 
-.brand-card .model {
-    color: white;
-    font-weight: bold;
-    margin: 12px 0;
-    font-size: 15px;
-}
-
-.brand-card .more {
-    display: inline-block;
-    color: var(--light);
+.catalog-item {
     font-size: 13px;
-    font-weight: bold;
-    margin-top: 18px;
+    color: #d2e4fb;
+    margin-bottom: 6px;
+
+}
+
+.catalog-item strong {
+    color: var(--light);
 }
 
 .benefits {
@@ -421,9 +447,14 @@ section {
 
 .privacy {
     color: #a9bfdc;
-    font-size: 11px;
+    font-size: 12px;
     margin-top: 15px;
     text-align: center;
+}
+
+.privacy a {
+    color: var(--light);
+    text-decoration: underline;
 }
 
 footer {
@@ -437,6 +468,10 @@ footer {
 footer strong {
     color: white;
     font-size: 20px;
+}
+
+footer a {
+    color: var(--light);
 }
 
 .whatsapp {
@@ -460,6 +495,44 @@ footer strong {
 .whatsapp:hover {
     transform: scale(1.1);
     background: #0866d9;
+}
+
+/* MODAL DE AVISO DE PRIVACIDAD */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 300;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--dark);
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    width: 85%;
+    max-width: 700px;
+    color: var(--white);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close-modal {
+    color: var(--muted);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: var(--white);
 }
 
 @media(max-width:850px) {
@@ -515,7 +588,7 @@ footer strong {
     <div class="nav-links">
         <a href="#inicio">Inicio</a>
         <a href="#servicios">Servicios</a>
-        <a href="#marcas">Firewalls</a>
+        <a href="#marcas">Marcas & Catálogo</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#contacto">Contacto</a>
     </div>
@@ -538,12 +611,12 @@ footer strong {
 
     <p>
         Soluciones profesionales de ciberseguridad empresarial,
-        firewalls de nueva generación, protección de redes,
-        infraestructura tecnológica y seguridad de información.
+        firewalls de nueva generación, switches administrables, 
+        Access Points de alta velocidad y protección de redes corporativas.
     </p>
 
     <a href="#marcas" class="btn btn-primary">
-        CONOCER FIREWALLS →
+        VER SOLUCIONES Y MARCAS →
     </a>
 
     <a href="#contacto" class="btn btn-outline">
@@ -569,7 +642,7 @@ footer strong {
 
     <article class="card">
         <div class="icon">01</div>
-        <h3>Firewalls empresariales</h3>
+        <h3>Firewalls Empresariales</h3>
         <p>
             Implementación, configuración y administración
             de soluciones de seguridad perimetral para
@@ -579,185 +652,161 @@ footer strong {
 
     <article class="card">
         <div class="icon">02</div>
-        <h3>Seguridad de redes</h3>
+        <h3>Switches & Conectividad</h3>
         <p>
-            Protección de redes empresariales, segmentación,
-            conexiones seguras, VPN y control de accesos.
+            Conmutación y segmentación de redes LAN corporativas con switches administrables PoE/PoE+ para alto tráfico de datos.
         </p>
     </article>
 
     <article class="card">
         <div class="icon">03</div>
-        <h3>Protección de información</h3>
+        <h3>Access Points & Wi-Fi 6</h3>
         <p>
-            Estrategias para proteger información corporativa,
-            datos importantes y recursos digitales.
+            Cobertura inalámbrica empresarial segura, Wi-Fi 6 de alta densidad y redes corporativas/visitantes independientes.
         </p>
     </article>
 
     <article class="card">
         <div class="icon">04</div>
-        <h3>Seguridad de endpoints</h3>
+        <h3>Protección Endpoint</h3>
         <p>
             Protección de computadoras, servidores y
-            dispositivos contra amenazas informáticas.
+            dispositivos contra malware, ransomware y amenazas informáticas.
         </p>
     </article>
 
     <article class="card">
         <div class="icon">05</div>
-        <h3>Monitoreo de infraestructura</h3>
+        <h3>Monitoreo de Infraestructura</h3>
         <p>
-            Supervisión de equipos, conexiones y recursos
+            Supervisión continua de equipos, conexiones y recursos
             tecnológicos para identificar posibles incidencias.
         </p>
     </article>
 
     <article class="card">
         <div class="icon">06</div>
-        <h3>Consultoría tecnológica</h3>
+        <h3>Consultoría Tecnológica</h3>
         <p>
-            Asesoría para seleccionar e implementar
-            soluciones de ciberseguridad de acuerdo con
-            las necesidades de tu organización.
+            Asesoría especializada para seleccionar e implementar
+            soluciones de ciberseguridad a la medida de tu organización.
         </p>
     </article>
 
 </div>
 </section>
 
-<!-- FIREWALLS Y MARCAS -->
+<!-- MARCAS Y CATÁLOGO COMPLETO -->
 
 <section class="brands" id="marcas">
 
 <div class="heading">
-    <h2>Marcas líderes en <span>Firewalls</span></h2>
+    <h2>Catálogo de Soluciones por <span>Marca</span></h2>
     <p>
-        Conoce las tecnologías de seguridad empresarial
-        que pueden fortalecer la protección de tu infraestructura.
+        Integración de tecnología de clase mundial: Firewalls, Switches, Access Points y Licenciamiento.
     </p>
 </div>
 
 <div class="cards">
 
+    <!-- FORTINET -->
     <article class="card brand-card">
+        <div>
+            <div class="brand-header">
+                <img src="https://img.shields.io/badge/FORTINET-red?style=for-the-badge&logo=fortinet&logoColor=white" alt="Fortinet Logo" class="brand-logo" style="background:transparent; padding:0;">
+                <span class="brand-label">SECURITY FABRIC</span>
+            </div>
+            
+            <h3>FORTINET</h3>
+            <p>Ecosistema integral de seguridad perimetral e inalámbrica administrada centralmente.</p>
 
-        <div class="icon">F</div>
+            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" alt="Equipos Fortinet" class="product-img">
 
-        <span class="brand-label">SEGURIDAD EMPRESARIAL</span>
+            <div class="catalog-list">
+                <div class="catalog-item"><strong>Firewalls (FortiGate):</strong> Modelos Serie FG-40F, FG-60F, FG-80F y Serie 100F con inspección de tráfico UTM.</div>
+                <div class="catalog-item"><strong>Switches (FortiSwitch):</strong> Conmutadores de acceso e interconexión integrados con FortiGate.</div>
+                <div class="catalog-item"><strong>Access Points (FortiAP):</strong> Puntos de acceso Wi-Fi 6 interiores y exteriores de alta disponibilidad.</div>
+            </div>
+        </div>
 
-        <h3>FORTINET</h3>
-
-        <div class="model">FortiGate Next-Generation Firewall</div>
-
-        <p>
-            Plataforma de seguridad de red diseñada para
-            proteger empresas mediante inspección de tráfico,
-            control de aplicaciones y prevención de amenazas.
-        </p>
-
-        <ul>
-            <li>Firewall de nueva generación (NGFW).</li>
-            <li>Prevención de intrusiones IPS.</li>
-            <li>VPN para conexiones seguras.</li>
-            <li>Filtrado web y control de aplicaciones.</li>
-            <li>Protección avanzada contra amenazas.</li>
-        </ul>
-
-        <a href="#contacto" class="more">
-            SOLICITAR INFORMACIÓN →
+        <a href="#contacto" class="btn btn-primary" style="margin-top: 15px; text-align: center;">
+            COTIZAR FORTINET →
         </a>
-
     </article>
 
+    <!-- SOPHOS -->
     <article class="card brand-card">
+        <div>
+            <div class="brand-header">
+                <img src="https://img.shields.io/badge/SOPHOS-005B94?style=for-the-badge&logo=sophos&logoColor=white" alt="Sophos Logo" class="brand-logo" style="background:transparent; padding:0;">
+                <span class="brand-label">SYNCHRONIZED SECURITY</span>
+            </div>
 
-        <div class="icon">S</div>
+            <h3>SOPHOS</h3>
+            <p>Protección sincronizada entre firewall y endpoints con inteligencia de amenazas por IA.</p>
 
-        <span class="brand-label">PROTECCIÓN AVANZADA</span>
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="Equipos Sophos" class="product-img">
 
-        <h3>SOPHOS</h3>
+            <div class="catalog-list">
+                <div class="catalog-item"><strong>Firewalls (Sophos XGS):</strong> Arquitectura Xstream de alto rendimiento (XGS 87, 107, 116, 126).</div>
+                <div class="catalog-item"><strong>Switches (Sophos Switch):</strong> Conmutadores de capa 2/3 administrados mediante Sophos Central.</div>
+                <div class="catalog-item"><strong>Access Points (Sophos AP6):</strong> Redes inalámbricas seguras administradas desde la nube.</div>
+            </div>
+        </div>
 
-        <div class="model">Sophos Firewall XGS</div>
-
-        <p>
-            Solución de seguridad de red enfocada en
-            identificar amenazas, controlar conexiones
-            y proteger los recursos tecnológicos.
-        </p>
-
-        <ul>
-            <li>Inspección de tráfico de red.</li>
-            <li>Protección contra intrusiones.</li>
-            <li>Seguridad de aplicaciones.</li>
-            <li>VPN y acceso remoto seguro.</li>
-            <li>Protección web y control de usuarios.</li>
-        </ul>
-
-        <a href="#contacto" class="more">
-            SOLICITAR INFORMACIÓN →
+        <a href="#contacto" class="btn btn-primary" style="margin-top: 15px; text-align: center;">
+            COTIZAR SOPHOS →
         </a>
-
     </article>
 
+    <!-- CISCO -->
     <article class="card brand-card">
+        <div>
+            <div class="brand-header">
+                <img src="https://img.shields.io/badge/CISCO-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white" alt="Cisco Logo" class="brand-logo" style="background:transparent; padding:0;">
+                <span class="brand-label">ENTERPRISE NETWORKS</span>
+            </div>
 
-        <div class="icon">C</div>
+            <h3>CISCO / MERAKI</h3>
+            <p>Infraestructura de red robusta, escalable y con gestión basada en la nube para grandes empresas.</p>
 
-        <span class="brand-label">INFRAESTRUCTURA DE RED</span>
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Equipos Cisco" class="product-img">
 
-        <h3>CISCO</h3>
+            <div class="catalog-list">
+                <div class="catalog-item"><strong>Firewalls (Secure Firewall / Meraki MX):</strong> Protección avanzada contra intrusiones y VPN SD-WAN.</div>
+                <div class="catalog-item"><strong>Switches (Catalyst / Meraki MS):</strong> Conmutadores empresariales modularizables de altísimo rendimiento.</div>
+                <div class="catalog-item"><strong>Access Points (Catalyst / Meraki MR):</strong> Soluciones Wi-Fi 6E para entornos corporativos de alta densidad.</div>
+            </div>
+        </div>
 
-        <div class="model">Cisco Secure Firewall</div>
-
-        <p>
-            Tecnología empresarial para proteger redes,
-            administrar políticas de seguridad y
-            controlar el tráfico de información.
-        </p>
-
-        <ul>
-            <li>Firewall de nueva generación.</li>
-            <li>Prevención y detección de amenazas.</li>
-            <li>Control de aplicaciones.</li>
-            <li>Protección de redes corporativas.</li>
-            <li>Administración centralizada de seguridad.</li>
-        </ul>
-
-        <a href="#contacto" class="more">
-            SOLICITAR INFORMACIÓN →
+        <a href="#contacto" class="btn btn-primary" style="margin-top: 15px; text-align: center;">
+            COTIZAR CISCO →
         </a>
-
     </article>
 
+    <!-- SONICWALL -->
     <article class="card brand-card">
+        <div>
+            <div class="brand-header">
+                <img src="https://img.shields.io/badge/SONICWALL-FF6600?style=for-the-badge&logo=sonicwall&logoColor=white" alt="SonicWall Logo" class="brand-logo" style="background:transparent; padding:0;">
+                <span class="brand-label">BOUNDLESS CYBERSECURITY</span>
+            </div>
 
-        <div class="icon">S</div>
+            <h3>SONICWALL</h3>
+            <p>Seguridad informática perimetral y soluciones inalámbricas rentables para PyMEs y Corporativos.</p>
 
-        <span class="brand-label">SEGURIDAD PERIMETRAL</span>
+            <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80" alt="Equipos SonicWall" class="product-img">
 
-        <h3>SONICWALL</h3>
+            <div class="catalog-list">
+                <div class="catalog-item"><strong>Firewalls (Serie TZ & NSa):</strong> Modelos TZ80, TZ270, TZ370, TZ470 y Serie NSa para empresas en crecimiento.</div>
+                <div class="catalog-item"><strong>Switches (SonicWall Switch):</strong> Conmutación administrada e integrada con firewall perimetral.</div>
+                <div class="catalog-item"><strong>Access Points (SonicWave):</strong> Cobertura Wi-Fi segura con detección automática de amenazas inalámbricas.</div>
+            </div>
+        </div>
 
-        <div class="model">SonicWall TZ y NSa</div>
-
-        <p>
-            Soluciones de firewall para pequeñas, medianas
-            y grandes organizaciones que necesitan proteger
-            sus redes y conexiones empresariales.
-        </p>
-
-        <ul>
-            <li>Protección perimetral avanzada.</li>
-            <li>Prevención de intrusiones.</li>
-            <li>VPN de acceso remoto.</li>
-            <li>Filtrado de contenido web.</li>
-            <li>Inspección y control de tráfico.</li>
-        </ul>
-
-        <a href="#contacto" class="more">
-            SOLICITAR INFORMACIÓN →
+        <a href="#contacto" class="btn btn-primary" style="margin-top: 15px; text-align: center;">
+            COTIZAR SONICWALL →
         </a>
-
     </article>
 
 </div>
@@ -771,7 +820,7 @@ footer strong {
     <h2>¿Por qué proteger tu <span>empresa?</span></h2>
     <p>
         Una infraestructura segura es fundamental
-        para mantener la continuidad de tu negocio.
+        para mantener la continuidad operativa de tu negocio.
     </p>
 </div>
 
@@ -782,25 +831,23 @@ footer strong {
         <h3>Protección de datos</h3>
         <p>
             Reduce los riesgos de exposición y acceso
-            no autorizado a la información empresarial.
+            no autorizado a la información sensible de tu empresa.
         </p>
     </article>
 
     <article class="card">
         <div class="icon">02</div>
-        <h3>Continuidad operativa</h3>
+        <h3>Continuidad Operativa</h3>
         <p>
-            Fortalece la disponibilidad y seguridad
-            de los servicios tecnológicos de tu empresa.
+            Evita caídas de red y ataques de Ransomware garantizando la continuidad del negocio.
         </p>
     </article>
 
     <article class="card">
         <div class="icon">03</div>
-        <h3>Control de accesos</h3>
+        <h3>Control y Visibilidad</h3>
         <p>
-            Administra conexiones, usuarios y dispositivos
-            que interactúan con tu infraestructura.
+            Administra conexiones, usuarios, aplicaciones consumidas y dispositivos de forma centralizada.
         </p>
     </article>
 
@@ -816,16 +863,11 @@ footer strong {
     <h2>Conoce <span>CYBERSECURITY</span></h2>
 
     <p>
-        Somos una propuesta enfocada en acercar soluciones
-        profesionales de ciberseguridad y tecnología a
-        empresas que buscan proteger sus recursos digitales.
+        Somos especialistas en integraciones tecnológicas de ciberseguridad, redes y enlaces seguros para empresas que buscan proteger sus activos digitales con marcas líderes del mercado.
     </p>
 
     <p>
-        Nuestro objetivo es ofrecer asesoría tecnológica,
-        alternativas de protección perimetral y soluciones
-        de seguridad adaptadas a las necesidades de cada
-        organización.
+        Brindamos diseño, arquitectura de red, venta de licenciamiento, suministro de hardware y soporte técnico especializado.
     </p>
 
     <h2 style="color:#56b5ff;margin-top:30px;">
@@ -844,10 +886,9 @@ footer strong {
 <section class="contact" id="contacto">
 
 <div class="heading">
-    <h2>Solicita una <span>asesoría</span></h2>
+    <h2>Solicita una <span>asesoría o cotización</span></h2>
     <p>
-        Cuéntanos qué necesita tu empresa.
-        Nuestro equipo podrá conocer tu solicitud por WhatsApp.
+        Cuéntanos tus requerimientos. Nuestro equipo atenderá tu solicitud por WhatsApp o correo.
     </p>
 </div>
 
@@ -858,14 +899,11 @@ footer strong {
         <h2>Hablemos de seguridad.</h2>
 
         <p>
-            ¿Necesitas implementar un firewall,
-            proteger tu red o mejorar la seguridad
-            tecnológica de tu empresa?
+            ¿Necesitas cotizar o implementar un Firewall, Switch, Access Point o renovar tu licenciamiento empresarial?
         </p>
 
         <p>
-            Completa el formulario y envíanos tus
-            datos para dar seguimiento a tu solicitud.
+            Completa el formulario y se generará una solicitud directa hacia nuestra línea de atención.
         </p>
 
         <p>
@@ -878,7 +916,7 @@ footer strong {
            target="_blank"
            rel="noopener noreferrer"
            class="btn btn-primary">
-           CONTACTAR DIRECTAMENTE
+           CONTACTAR DIRECTAMENTE POR WHATSAPP
         </a>
 
     </div>
@@ -940,13 +978,12 @@ footer strong {
 
             <select id="solucion" name="solucion" required>
                 <option value="">Selecciona una opción</option>
-                <option>Firewall Fortinet</option>
-                <option>Firewall Sophos</option>
-                <option>Firewall Cisco</option>
-                <option>Firewall SonicWall</option>
-                <option>Seguridad de redes</option>
-                <option>Protección de servidores</option>
-                <option>Consultoría de ciberseguridad</option>
+                <option>Soluciones Fortinet (Firewall, Switch, AP)</option>
+                <option>Soluciones Sophos (Firewall, Switch, AP)</option>
+                <option>Soluciones Cisco / Meraki</option>
+                <option>Soluciones SonicWall (Firewalls TZ80 / NSa)</option>
+                <option>Seguridad de Redes y WiFi Empresarial</option>
+                <option>Consultoría y Renovación de Licencias</option>
                 <option>Otra solución</option>
             </select>
         </div>
@@ -956,7 +993,7 @@ footer strong {
             <textarea
                 id="mensaje"
                 name="mensaje"
-                placeholder="Describe brevemente las necesidades de tu empresa..."></textarea>
+                placeholder="Describe brevemente la cantidad de usuarios o equipos que requieres..."></textarea>
         </div>
 
         <div class="form-group">
@@ -966,8 +1003,7 @@ footer strong {
                     id="consentimiento"
                     required
                     style="width:auto;margin-right:7px;">
-                Acepto que CYBERSECURITY utilice mis datos
-                para atender mi solicitud de contacto.
+                Acepto que CYBERSECURITY utilice mis datos para atender mi solicitud conforme al <a href="#" id="openPrivacyLink">Aviso de Privacidad</a>.
             </label>
         </div>
 
@@ -976,9 +1012,7 @@ footer strong {
         </button>
 
         <div class="privacy">
-            Tus datos se incluirán en el mensaje de WhatsApp
-            que tú decidas enviar. Consulta el aviso de privacidad
-            de la empresa antes de publicar este formulario.
+            Tus datos están protegidos. Consulta nuestro <a href="#" id="openPrivacyBtn">Aviso de Privacidad</a> para mayor información.
         </div>
 
     </form>
@@ -996,13 +1030,12 @@ footer strong {
 
     <p>Seguridad • Tecnología • Protección Digital</p>
 
-    <p>Especialistas en soluciones de ciberseguridad empresarial.</p>
+    <p>Especialistas en soluciones de ciberseguridad y redes empresariales.</p>
 
     <p>WhatsApp: 563 509 3209</p>
 
     <p style="margin-top:15px;">
-        © <span id="year"></span> CYBERSECURITY.
-        Todos los derechos reservados.
+        <a href="#" id="footerPrivacyLink">Aviso de Privacidad</a> | © <span id="year"></span> CYBERSECURITY. Todos los derechos reservados.
     </p>
 
 </footer>
@@ -1017,46 +1050,68 @@ footer strong {
    W
 </a>
 
+<!-- MODAL DE AVISO DE PRIVACIDAD -->
+<div id="privacyModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2 style="color: var(--light); margin-bottom: 15px;">Aviso de Privacidad</h2>
+    <p>En <strong>CYBERSECURITY</strong>, la confidencialidad y protección de sus datos personales es una prioridad. Los datos recabados a través de este sitio web (nombre, correo electrónico, teléfono y empresa) se utilizarán exclusivamente para:</p>
+    <ul style="margin: 15px 0 15px 20px;">
+        <li>Proporcionar cotizaciones e información de soluciones tecnológicas solicitadas.</li>
+        <li>Dar seguimiento a consultas comerciales y soporte técnico.</li>
+        <li>Establecer contacto directo vía telefónica o WhatsApp.</li>
+    </ul>
+    <p>Sus datos no serán transferidos ni vendidos a terceros bajo ninguna circunstancia. Para ejercer sus derechos de acceso, rectificación, cancelación u oposición (ARCO), puede contactarnos directamente a través de nuestras vías oficiales de atención.</p>
+  </div>
+</div>
+
 <script>
 
 // AÑO AUTOMÁTICO
+document.getElementById("year").textContent = new Date().getFullYear();
 
-document.getElementById("year").textContent =
-    new Date().getFullYear();
+// MODAL AVISO DE PRIVACIDAD
+const modal = document.getElementById("privacyModal");
+const btnOpenLink = document.getElementById("openPrivacyLink");
+const btnOpenBtn = document.getElementById("openPrivacyBtn");
+const btnFooterLink = document.getElementById("footerPrivacyLink");
+const closeModalBtn = document.getElementsByClassName("close-modal")[0];
 
+function showPrivacy(e) {
+    e.preventDefault();
+    modal.style.display = "block";
+}
+
+btnOpenLink.onclick = showPrivacy;
+btnOpenBtn.onclick = showPrivacy;
+btnFooterLink.onclick = showPrivacy;
+
+closeModalBtn.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
 // FORMULARIO CON ENVÍO A WHATSAPP
-
 document.getElementById("leadForm").addEventListener(
     "submit",
     function(event) {
 
         event.preventDefault();
 
-        const nombre =
-            document.getElementById("nombre").value.trim();
+        const nombre = document.getElementById("nombre").value.trim();
+        const telefono = document.getElementById("telefono").value.trim();
+        const correo = document.getElementById("correo").value.trim();
+        const empresa = document.getElementById("empresa").value.trim();
+        const solucion = document.getElementById("solucion").value;
+        const mensaje = document.getElementById("mensaje").value.trim();
+        const consentimiento = document.getElementById("consentimiento").checked;
 
-        const telefono =
-            document.getElementById("telefono").value.trim();
-
-        const correo =
-            document.getElementById("correo").value.trim();
-
-        const empresa =
-            document.getElementById("empresa").value.trim();
-
-        const solucion =
-            document.getElementById("solucion").value;
-
-        const mensaje =
-            document.getElementById("mensaje").value.trim();
-
-        const consentimiento =
-            document.getElementById("consentimiento").checked;
-
-        if (!nombre || !telefono || !correo ||
-            !solucion || !consentimiento) {
-
+        if (!nombre || !telefono || !correo || !solucion || !consentimiento) {
             alert("Por favor, completa los campos obligatorios.");
             return;
         }
@@ -1065,29 +1120,24 @@ document.getElementById("leadForm").addEventListener(
 `NUEVO CLIENTE - CYBERSECURITY
 
 DATOS DEL CONTACTO
-
 Nombre: ${nombre}
 Teléfono: ${telefono}
 Correo electrónico: ${correo}
 Empresa: ${empresa || "No especificada"}
 
-SOLICITUD
+SOLICITUD DE SOLUCIÓN
+Interés: ${solucion}
 
-Solución de interés: ${solucion}
-
-Mensaje:
+Mensaje / Requerimiento:
 ${mensaje || "Sin mensaje adicional"}
 
-Solicitud recibida desde el sitio web CYBERSECURITY.`;
+Solicitud enviada desde la web.`;
 
         const numeroWhatsApp = "525635093209";
 
-        const url =
-            "https://wa.me/" + numeroWhatsApp +
-            "?text=" + encodeURIComponent(texto);
+        const url = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(texto);
 
         window.open(url, "_blank");
-
     }
 );
 
