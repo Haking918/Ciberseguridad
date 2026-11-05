@@ -3,149 +3,1096 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CYBERSECURITY | Protección Digital</title>
+
+<title>CYBERSECURITY | Seguridad Empresarial</title>
+
+<meta name="description" content="Soluciones profesionales de ciberseguridad, firewalls empresariales, protección de redes e infraestructura tecnológica.">
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#080d24;color:white;line-height:1.7}
-header{background:#101a38;padding:20px;position:sticky;top:0;z-index:10}
-nav{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
-.logo{font-size:23px;font-weight:bold;color:white}
-.logo span{color:#00e5ff}
-nav a{color:white;text-decoration:none;font-weight:bold;font-size:14px}
-nav a:hover{color:#00e5ff}
-.hero{padding:110px 8%;background:linear-gradient(120deg,#071426,#173b76,#501c79);min-height:530px;display:flex;align-items:center}
-.hero-content{max-width:750px}
-.hero h1{font-size:clamp(38px,6vw,68px);line-height:1.15;margin:20px 0}
-.hero h1 span{color:#00e5ff}
-.hero p{font-size:18px;color:#d5e3ff;margin-bottom:28px}
-.btn{display:inline-block;padding:14px 23px;border-radius:8px;text-decoration:none;font-weight:bold;margin:5px}
-.primary{background:#1478ff;color:white}
-.secondary{border:1px solid #00e5ff;color:#00e5ff}
-section{padding:85px 7%}
-.heading{text-align:center;margin-bottom:40px}
-.heading h2{font-size:36px;margin-bottom:12px}
-.heading p{color:#c2cee2}
-.cards{max-width:1150px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
-.card{padding:28px;border-radius:15px;background:linear-gradient(145deg,#192c55,#17163e);border:1px solid #344b79;transition:.3s}
-.card:hover{transform:translateY(-7px);border-color:#00e5ff}
-.card .icon{font-size:36px;margin-bottom:15px}
-.card h3{color:#00e5ff;margin-bottom:12px}
-.card p{color:#c4d0e6}
-.services{background:linear-gradient(130deg,#102c53,#211448)}
-.solutions{background:linear-gradient(130deg,#102044,#263b72)}
-.about{background:linear-gradient(130deg,#28134c,#102d55)}
-.threats{background:linear-gradient(130deg,#431b58,#10254c)}
-.contact{background:linear-gradient(130deg,#063c58,#24205b)}
-.about-content{max-width:850px;margin:auto;text-align:center}
-.about-content p{color:#d2dff4;margin:18px 0}
-.contact-box{max-width:800px;margin:auto;text-align:center;padding:45px 25px;background:#ffffff12;border:1px solid #ffffff30;border-radius:20px}
-.contact-box h2{font-size:35px;margin-bottom:15px}
-.phone{font-size:23px;color:#00e5ff;font-weight:bold;margin-top:20px}
-footer{text-align:center;background:#050919;padding:30px;color:#aebbd1}
-.whatsapp{position:fixed;bottom:22px;right:22px;width:62px;height:62px;border-radius:50%;background:#25d366;color:white;display:grid;place-items:center;font-size:30px;text-decoration:none;z-index:20;box-shadow:0 5px 20px #0008}
-@media(max-width:650px){
- nav{justify-content:center}
- nav a{padding:5px}
- .hero{padding:75px 7%}
- .heading h2{font-size:29px}
+:root {
+    --navy: #06152e;
+    --dark: #081d3b;
+    --blue: #0866d9;
+    --electric: #168cff;
+    --light: #56b5ff;
+    --white: #ffffff;
+    --muted: #b8cce5;
+    --border: rgba(92,166,255,.25);
+    --card: #10294d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    background: rgba(5,20,43,.96);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 17px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--light);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #dceaff;
+    font-size: 14px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--light);
+}
+
+.hero {
+    min-height: 620px;
+    padding: 110px 8%;
+    display: flex;
+    align-items: center;
+    background:
+    radial-gradient(circle at 80% 40%, #1264b855, transparent 35%),
+    linear-gradient(120deg,#06152e,#0a2851,#104b86);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 850px;
+    position: relative;
+    z-index: 2;
+}
+
+.tag {
+    color: var(--light);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-size: clamp(40px,6vw,70px);
+    line-height: 1.12;
+    margin: 22px 0;
+}
+
+.hero h1 span {
+    color: var(--light);
+}
+
+.hero p {
+    max-width: 690px;
+    color: #d2e4fb;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 5px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(120deg,#0866d9,#168cff);
+    color: white;
+    box-shadow: 0 8px 25px #087bff35;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px #168cff65;
+}
+
+.btn-outline {
+    border: 1px solid var(--light);
+    color: var(--light);
+}
+
+.btn-outline:hover {
+    background: #168cff20;
+}
+
+section {
+    padding: 85px 7%;
+}
+
+.heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 48px;
+}
+
+.heading h2 {
+    font-size: clamp(29px,4vw,40px);
+    margin-bottom: 12px;
+}
+
+.heading p {
+    color: var(--muted);
+}
+
+.heading h2 span {
+    color: var(--light);
+}
+
+.cards {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(245px,1fr));
+    gap: 23px;
+}
+
+.card {
+    background: linear-gradient(145deg,#112e55,#0b2040);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 30px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--electric);
+    box-shadow: 0 12px 35px #0005;
+}
+
+.icon {
+    width: 62px;
+    height: 62px;
+    border-radius: 14px;
+    background: linear-gradient(135deg,#0866d9,#168cff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 26px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 20px #168cff35;
+}
+
+.card h3 {
+    color: var(--light);
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #c4d7ef;
+    font-size: 14px;
+}
+
+.card ul {
+    padding-left: 18px;
+    margin-top: 15px;
+    color: #c4d7ef;
+    font-size: 14px;
+}
+
+.card li {
+    margin-bottom: 7px;
+}
+
+.services {
+    background: #091d39;
+}
+
+.brands {
+    background: linear-gradient(180deg,#081a34,#0b2850);
+}
+
+.brand-label {
+    display: inline-block;
+    color: #a9d8ff;
+    background: #168cff20;
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+.brand-card {
+    min-height: 100%;
+}
+
+.brand-card .icon {
+    font-size: 25px;
+}
+
+.brand-card .model {
+    color: white;
+    font-weight: bold;
+    margin: 12px 0;
+    font-size: 15px;
+}
+
+.brand-card .more {
+    display: inline-block;
+    color: var(--light);
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 18px;
+}
+
+.benefits {
+    background: #0a2243;
+}
+
+.about {
+    background: linear-gradient(120deg,#071831,#103d70);
+}
+
+.about-content {
+    max-width: 900px;
+    text-align: center;
+    margin: auto;
+}
+
+.about-content p {
+    color: #c7dcf5;
+    margin: 18px 0;
+}
+
+.about-content h2 {
+    font-size: 35px;
+}
+
+.about-content h2 span {
+    color: var(--light);
+}
+
+.contact {
+    background: linear-gradient(145deg,#071a36,#103a6b);
+}
+
+.contact-container {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 35px;
+    align-items: start;
+}
+
+.contact-info {
+    padding: 25px 10px;
+}
+
+.contact-info h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    color: #c4d8f0;
+    margin-bottom: 20px;
+}
+
+.contact-info .phone {
+    font-size: 23px;
+    color: var(--light);
+    font-weight: bold;
+}
+
+.contact-form {
+    background: #ffffff0b;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 32px;
+}
+
+.contact-form h3 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.contact-form > p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #d9eaff;
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 14px;
+    background: #081c37;
+    color: white;
+    border: 1px solid #31547e;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--electric);
+    box-shadow: 0 0 0 3px #168cff20;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #819ab9;
+}
+
+.form-group select option {
+    background: #081c37;
+    color: white;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-form button {
+    width: 100%;
+    border: none;
+    font-size: 15px;
+}
+
+.privacy {
+    color: #a9bfdc;
+    font-size: 11px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+footer {
+    padding: 35px 20px;
+    text-align: center;
+    background: #040e20;
+    color: #9fb5d2;
+    font-size: 13px;
+}
+
+footer strong {
+    color: white;
+    font-size: 20px;
+}
+
+.whatsapp {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    z-index: 200;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #168cff;
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 27px;
+    font-weight: bold;
+    box-shadow: 0 5px 25px #0008;
+    transition: .3s;
+}
+
+.whatsapp:hover {
+    transform: scale(1.1);
+    background: #0866d9;
+}
+
+@media(max-width:850px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+@media(max-width:600px) {
+    .hero {
+        min-height: 540px;
+        padding: 75px 7%;
+    }
+
+    section {
+        padding: 65px 6%;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .contact-form {
+        padding: 22px;
+    }
+
+    .btn {
+        display: block;
+        text-align: center;
+    }
 }
 </style>
 </head>
+
 <body>
 
 <header>
 <nav>
-<a class="logo" href="#inicio">CYBER<span>SECURITY</span></a>
-<a href="#inicio">Inicio</a>
-<a href="#servicios">Servicios</a>
-<a href="#soluciones">Soluciones</a>
-<a href="#nosotros">Nosotros</a>
-<a href="#amenazas">Seguridad</a>
-<a href="#contacto">Contacto</a>
+    <a href="#inicio" class="logo">
+        CYBER<span>SECURITY</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#marcas">Firewalls</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+    </div>
 </nav>
 </header>
 
 <main>
+
+<!-- INICIO -->
+
 <section class="hero" id="inicio">
 <div class="hero-content">
-<p>🛡 TECNOLOGÍA Y SEGURIDAD DIGITAL</p>
-<h1>Protegemos tu mundo <span>digital.</span></h1>
-<p>Soluciones profesionales de ciberseguridad, protección de redes, información e infraestructura tecnológica para empresas y negocios.</p>
-<a class="btn primary" href="#servicios">CONOCER SERVICIOS →</a>
-<a class="btn secondary" href="https://wa.me/525635093209" target="_blank">CONTACTAR POR WHATSAPP</a>
+
+    <div class="tag">TECNOLOGÍA • SEGURIDAD • INNOVACIÓN</div>
+
+    <h1>
+        Protegemos tu empresa.
+        <span>Blindamos tu futuro digital.</span>
+    </h1>
+
+    <p>
+        Soluciones profesionales de ciberseguridad empresarial,
+        firewalls de nueva generación, protección de redes,
+        infraestructura tecnológica y seguridad de información.
+    </p>
+
+    <a href="#marcas" class="btn btn-primary">
+        CONOCER FIREWALLS →
+    </a>
+
+    <a href="#contacto" class="btn btn-outline">
+        SOLICITAR ASESORÍA
+    </a>
+
 </div>
 </section>
+
+<!-- SERVICIOS -->
 
 <section class="services" id="servicios">
+
 <div class="heading">
-<h2>Nuestros servicios</h2>
-<p>Protección tecnológica para empresas y usuarios.</p>
+    <h2>Nuestros <span>Servicios</span></h2>
+    <p>
+        Tecnología especializada para proteger,
+        administrar y fortalecer tu infraestructura empresarial.
+    </p>
 </div>
+
 <div class="cards">
-<article class="card"><div class="icon">🔥</div><h3>Firewalls empresariales</h3><p>Protección perimetral y control del tráfico de red.</p></article>
-<article class="card"><div class="icon">🌐</div><h3>Seguridad de redes</h3><p>Protección de infraestructura y conexiones.</p></article>
-<article class="card"><div class="icon">🔐</div><h3>Protección de datos</h3><p>Buenas prácticas para proteger información importante.</p></article>
-<article class="card"><div class="icon">🛡️</div><h3>Antivirus empresarial</h3><p>Prevención y detección de amenazas digitales.</p></article>
-<article class="card"><div class="icon">📡</div><h3>Monitoreo de redes</h3><p>Supervisión de infraestructura tecnológica.</p></article>
-<article class="card"><div class="icon">💻</div><h3>Asesoría tecnológica</h3><p>Orientación sobre seguridad informática.</p></article>
+
+    <article class="card">
+        <div class="icon">01</div>
+        <h3>Firewalls empresariales</h3>
+        <p>
+            Implementación, configuración y administración
+            de soluciones de seguridad perimetral para
+            proteger tu empresa frente a amenazas externas.
+        </p>
+    </article>
+
+    <article class="card">
+        <div class="icon">02</div>
+        <h3>Seguridad de redes</h3>
+        <p>
+            Protección de redes empresariales, segmentación,
+            conexiones seguras, VPN y control de accesos.
+        </p>
+    </article>
+
+    <article class="card">
+        <div class="icon">03</div>
+        <h3>Protección de información</h3>
+        <p>
+            Estrategias para proteger información corporativa,
+            datos importantes y recursos digitales.
+        </p>
+    </article>
+
+    <article class="card">
+        <div class="icon">04</div>
+        <h3>Seguridad de endpoints</h3>
+        <p>
+            Protección de computadoras, servidores y
+            dispositivos contra amenazas informáticas.
+        </p>
+    </article>
+
+    <article class="card">
+        <div class="icon">05</div>
+        <h3>Monitoreo de infraestructura</h3>
+        <p>
+            Supervisión de equipos, conexiones y recursos
+            tecnológicos para identificar posibles incidencias.
+        </p>
+    </article>
+
+    <article class="card">
+        <div class="icon">06</div>
+        <h3>Consultoría tecnológica</h3>
+        <p>
+            Asesoría para seleccionar e implementar
+            soluciones de ciberseguridad de acuerdo con
+            las necesidades de tu organización.
+        </p>
+    </article>
+
 </div>
 </section>
 
-<section class="solutions" id="soluciones">
+<!-- FIREWALLS Y MARCAS -->
+
+<section class="brands" id="marcas">
+
 <div class="heading">
-<h2>Soluciones tecnológicas</h2>
-<p>Alternativas para fortalecer tu entorno digital.</p>
+    <h2>Marcas líderes en <span>Firewalls</span></h2>
+    <p>
+        Conoce las tecnologías de seguridad empresarial
+        que pueden fortalecer la protección de tu infraestructura.
+    </p>
 </div>
+
 <div class="cards">
-<article class="card"><div class="icon">🔵</div><h3>Fortinet</h3><p>Soluciones de seguridad de red y protección empresarial.</p></article>
-<article class="card"><div class="icon">🟣</div><h3>Sophos</h3><p>Herramientas de protección de dispositivos y redes.</p></article>
-<article class="card"><div class="icon">🌐</div><h3>Cisco</h3><p>Tecnología de redes, conectividad y seguridad.</p></article>
-<article class="card"><div class="icon">🟠</div><h3>SonicWall</h3><p>Soluciones de protección perimetral y firewall.</p></article>
+
+    <article class="card brand-card">
+
+        <div class="icon">F</div>
+
+        <span class="brand-label">SEGURIDAD EMPRESARIAL</span>
+
+        <h3>FORTINET</h3>
+
+        <div class="model">FortiGate Next-Generation Firewall</div>
+
+        <p>
+            Plataforma de seguridad de red diseñada para
+            proteger empresas mediante inspección de tráfico,
+            control de aplicaciones y prevención de amenazas.
+        </p>
+
+        <ul>
+            <li>Firewall de nueva generación (NGFW).</li>
+            <li>Prevención de intrusiones IPS.</li>
+            <li>VPN para conexiones seguras.</li>
+            <li>Filtrado web y control de aplicaciones.</li>
+            <li>Protección avanzada contra amenazas.</li>
+        </ul>
+
+        <a href="#contacto" class="more">
+            SOLICITAR INFORMACIÓN →
+        </a>
+
+    </article>
+
+    <article class="card brand-card">
+
+        <div class="icon">S</div>
+
+        <span class="brand-label">PROTECCIÓN AVANZADA</span>
+
+        <h3>SOPHOS</h3>
+
+        <div class="model">Sophos Firewall XGS</div>
+
+        <p>
+            Solución de seguridad de red enfocada en
+            identificar amenazas, controlar conexiones
+            y proteger los recursos tecnológicos.
+        </p>
+
+        <ul>
+            <li>Inspección de tráfico de red.</li>
+            <li>Protección contra intrusiones.</li>
+            <li>Seguridad de aplicaciones.</li>
+            <li>VPN y acceso remoto seguro.</li>
+            <li>Protección web y control de usuarios.</li>
+        </ul>
+
+        <a href="#contacto" class="more">
+            SOLICITAR INFORMACIÓN →
+        </a>
+
+    </article>
+
+    <article class="card brand-card">
+
+        <div class="icon">C</div>
+
+        <span class="brand-label">INFRAESTRUCTURA DE RED</span>
+
+        <h3>CISCO</h3>
+
+        <div class="model">Cisco Secure Firewall</div>
+
+        <p>
+            Tecnología empresarial para proteger redes,
+            administrar políticas de seguridad y
+            controlar el tráfico de información.
+        </p>
+
+        <ul>
+            <li>Firewall de nueva generación.</li>
+            <li>Prevención y detección de amenazas.</li>
+            <li>Control de aplicaciones.</li>
+            <li>Protección de redes corporativas.</li>
+            <li>Administración centralizada de seguridad.</li>
+        </ul>
+
+        <a href="#contacto" class="more">
+            SOLICITAR INFORMACIÓN →
+        </a>
+
+    </article>
+
+    <article class="card brand-card">
+
+        <div class="icon">S</div>
+
+        <span class="brand-label">SEGURIDAD PERIMETRAL</span>
+
+        <h3>SONICWALL</h3>
+
+        <div class="model">SonicWall TZ y NSa</div>
+
+        <p>
+            Soluciones de firewall para pequeñas, medianas
+            y grandes organizaciones que necesitan proteger
+            sus redes y conexiones empresariales.
+        </p>
+
+        <ul>
+            <li>Protección perimetral avanzada.</li>
+            <li>Prevención de intrusiones.</li>
+            <li>VPN de acceso remoto.</li>
+            <li>Filtrado de contenido web.</li>
+            <li>Inspección y control de tráfico.</li>
+        </ul>
+
+        <a href="#contacto" class="more">
+            SOLICITAR INFORMACIÓN →
+        </a>
+
+    </article>
+
 </div>
 </section>
+
+<!-- BENEFICIOS -->
+
+<section class="benefits">
+
+<div class="heading">
+    <h2>¿Por qué proteger tu <span>empresa?</span></h2>
+    <p>
+        Una infraestructura segura es fundamental
+        para mantener la continuidad de tu negocio.
+    </p>
+</div>
+
+<div class="cards">
+
+    <article class="card">
+        <div class="icon">01</div>
+        <h3>Protección de datos</h3>
+        <p>
+            Reduce los riesgos de exposición y acceso
+            no autorizado a la información empresarial.
+        </p>
+    </article>
+
+    <article class="card">
+        <div class="icon">02</div>
+        <h3>Continuidad operativa</h3>
+        <p>
+            Fortalece la disponibilidad y seguridad
+            de los servicios tecnológicos de tu empresa.
+        </p>
+    </article>
+
+    <article class="card">
+        <div class="icon">03</div>
+        <h3>Control de accesos</h3>
+        <p>
+            Administra conexiones, usuarios y dispositivos
+            que interactúan con tu infraestructura.
+        </p>
+    </article>
+
+</div>
+</section>
+
+<!-- NOSOTROS -->
 
 <section class="about" id="nosotros">
+
 <div class="about-content">
-<h2>Conoce CYBERSECURITY</h2>
-<p>Creemos que proteger la información es fundamental para el crecimiento de cualquier negocio.</p>
-<p>Nuestro enfoque está orientado a ofrecer asesoría, información y alternativas tecnológicas para fortalecer la seguridad de empresas y usuarios.</p>
-<h2 style="color:#00e5ff;margin-top:25px">Tu seguridad es nuestra prioridad.</h2>
+
+    <h2>Conoce <span>CYBERSECURITY</span></h2>
+
+    <p>
+        Somos una propuesta enfocada en acercar soluciones
+        profesionales de ciberseguridad y tecnología a
+        empresas que buscan proteger sus recursos digitales.
+    </p>
+
+    <p>
+        Nuestro objetivo es ofrecer asesoría tecnológica,
+        alternativas de protección perimetral y soluciones
+        de seguridad adaptadas a las necesidades de cada
+        organización.
+    </p>
+
+    <h2 style="color:#56b5ff;margin-top:30px;">
+        Tu seguridad es nuestra prioridad.
+    </h2>
+
+    <a href="#contacto" class="btn btn-primary">
+        CONTACTAR CON UN ASESOR
+    </a>
+
 </div>
 </section>
 
-<section class="threats" id="amenazas">
-<div class="heading">
-<h2>Conoce las amenazas digitales</h2>
-<p>Aprende a reconocer los riesgos de internet.</p>
-</div>
-<div class="cards">
-<article class="card"><div class="icon">🎣</div><h3>Phishing</h3><p>Mensajes fraudulentos que buscan obtener contraseñas e información personal.</p></article>
-<article class="card"><div class="icon">🦠</div><h3>Ransomware</h3><p>Malware que puede bloquear archivos y sistemas.</p></article>
-<article class="card"><div class="icon">🔓</div><h3>Robo de credenciales</h3><p>Obtención indebida de usuarios y contraseñas.</p></article>
-</div>
-</section>
+<!-- CONTACTO Y FORMULARIO -->
 
 <section class="contact" id="contacto">
-<div class="contact-box">
-<h2>Hablemos de seguridad</h2>
-<p>¿Necesitas proteger tu empresa, tus equipos o tu infraestructura tecnológica?</p>
-<p>Contáctanos directamente para solicitar información.</p>
-<a class="btn primary" href="https://wa.me/525635093209?text=Hola%2C%20deseo%20informacion%20sobre%20sus%20servicios." target="_blank">💬 ESCRIBIR POR WHATSAPP</a>
-<div class="phone">5635093209</div>
+
+<div class="heading">
+    <h2>Solicita una <span>asesoría</span></h2>
+    <p>
+        Cuéntanos qué necesita tu empresa.
+        Nuestro equipo podrá conocer tu solicitud por WhatsApp.
+    </p>
+</div>
+
+<div class="contact-container">
+
+    <div class="contact-info">
+
+        <h2>Hablemos de seguridad.</h2>
+
+        <p>
+            ¿Necesitas implementar un firewall,
+            proteger tu red o mejorar la seguridad
+            tecnológica de tu empresa?
+        </p>
+
+        <p>
+            Completa el formulario y envíanos tus
+            datos para dar seguimiento a tu solicitud.
+        </p>
+
+        <p>
+            <strong>WhatsApp de atención:</strong>
+        </p>
+
+        <div class="phone">563 509 3209</div>
+
+        <a href="https://wa.me/525635093209"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-primary">
+           CONTACTAR DIRECTAMENTE
+        </a>
+
+    </div>
+
+    <form class="contact-form" id="leadForm">
+
+        <h3>Formulario de contacto</h3>
+
+        <p>
+            Completa tus datos para solicitar información.
+            Los campos marcados son obligatorios.
+        </p>
+
+        <div class="form-group">
+            <label for="nombre">Nombre completo *</label>
+            <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Escribe tu nombre"
+                autocomplete="name"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="telefono">Teléfono / WhatsApp *</label>
+            <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                placeholder="Tu número de contacto"
+                autocomplete="tel"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="correo">Correo electrónico *</label>
+            <input
+                type="email"
+                id="correo"
+                name="correo"
+                placeholder="ejemplo@empresa.com"
+                autocomplete="email"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="empresa">Nombre de tu empresa</label>
+            <input
+                type="text"
+                id="empresa"
+                name="empresa"
+                placeholder="Nombre de la empresa"
+                autocomplete="organization">
+        </div>
+
+        <div class="form-group">
+            <label for="solucion">¿Qué solución te interesa? *</label>
+
+            <select id="solucion" name="solucion" required>
+                <option value="">Selecciona una opción</option>
+                <option>Firewall Fortinet</option>
+                <option>Firewall Sophos</option>
+                <option>Firewall Cisco</option>
+                <option>Firewall SonicWall</option>
+                <option>Seguridad de redes</option>
+                <option>Protección de servidores</option>
+                <option>Consultoría de ciberseguridad</option>
+                <option>Otra solución</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="mensaje">Cuéntanos qué necesitas</label>
+            <textarea
+                id="mensaje"
+                name="mensaje"
+                placeholder="Describe brevemente las necesidades de tu empresa..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input
+                    type="checkbox"
+                    id="consentimiento"
+                    required
+                    style="width:auto;margin-right:7px;">
+                Acepto que CYBERSECURITY utilice mis datos
+                para atender mi solicitud de contacto.
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            ENVIAR SOLICITUD POR WHATSAPP →
+        </button>
+
+        <div class="privacy">
+            Tus datos se incluirán en el mensaje de WhatsApp
+            que tú decidas enviar. Consulta el aviso de privacidad
+            de la empresa antes de publicar este formulario.
+        </div>
+
+    </form>
+
 </div>
 </section>
+
 </main>
 
+<!-- FOOTER -->
+
 <footer>
-<p><strong>CYBERSECURITY</strong></p>
-<p>Seguridad • Tecnología • Protección Digital</p>
-<p>© <span id="year"></span> Todos los derechos reservados.</p>
+
+    <strong>CYBERSECURITY</strong>
+
+    <p>Seguridad • Tecnología • Protección Digital</p>
+
+    <p>Especialistas en soluciones de ciberseguridad empresarial.</p>
+
+    <p>WhatsApp: 563 509 3209</p>
+
+    <p style="margin-top:15px;">
+        © <span id="year"></span> CYBERSECURITY.
+        Todos los derechos reservados.
+    </p>
+
 </footer>
 
-<a class="whatsapp" href="https://wa.me/525635093209" target="_blank" aria-label="WhatsApp">☎</a>
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+
+<a class="whatsapp"
+   href="https://wa.me/525635093209"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Contactar por WhatsApp">
+   W
+</a>
 
 <script>
-document.getElementById("year").textContent=new Date().getFullYear();
+
+// AÑO AUTOMÁTICO
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+// FORMULARIO CON ENVÍO A WHATSAPP
+
+document.getElementById("leadForm").addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+        const nombre =
+            document.getElementById("nombre").value.trim();
+
+        const telefono =
+            document.getElementById("telefono").value.trim();
+
+        const correo =
+            document.getElementById("correo").value.trim();
+
+        const empresa =
+            document.getElementById("empresa").value.trim();
+
+        const solucion =
+            document.getElementById("solucion").value;
+
+        const mensaje =
+            document.getElementById("mensaje").value.trim();
+
+        const consentimiento =
+            document.getElementById("consentimiento").checked;
+
+        if (!nombre || !telefono || !correo ||
+            !solucion || !consentimiento) {
+
+            alert("Por favor, completa los campos obligatorios.");
+            return;
+        }
+
+        const texto =
+`NUEVO CLIENTE - CYBERSECURITY
+
+DATOS DEL CONTACTO
+
+Nombre: ${nombre}
+Teléfono: ${telefono}
+Correo electrónico: ${correo}
+Empresa: ${empresa || "No especificada"}
+
+SOLICITUD
+
+Solución de interés: ${solucion}
+
+Mensaje:
+${mensaje || "Sin mensaje adicional"}
+
+Solicitud recibida desde el sitio web CYBERSECURITY.`;
+
+        const numeroWhatsApp = "525635093209";
+
+        const url =
+            "https://wa.me/" + numeroWhatsApp +
+            "?text=" + encodeURIComponent(texto);
+
+        window.open(url, "_blank");
+
+    }
+);
+
 </script>
+
 </body>
 </html>
+
