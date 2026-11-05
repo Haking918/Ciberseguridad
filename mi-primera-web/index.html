@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CYBERSECURITY | Soluciones de Ciberseguridad y Redes Empresariales</title>
+<title>CYBERSECURITY | Ciberseguridad Empresarial & Radar de Amenazas</title>
 
-<meta name="description" content="Soluciones profesionales de ciberseguridad, firewalls empresariales, switches, access points y protección de redes corporativas.">
+<meta name="description" content="Soluciones de ciberseguridad empresarial, firewalls, switches, access points y blog de noticias sobre ciberataques.">
 
 <style>
 :root {
@@ -19,6 +19,9 @@
     --muted: #b8cce5;
     --border: rgba(92,166,255,.25);
     --card: #10294d;
+    --danger: #ff4757;
+    --warning: #ffa502;
+    --success: #2ed573;
 }
 
 * {
@@ -32,16 +35,17 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     background: var(--navy);
     color: var(--white);
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 a {
     text-decoration: none;
 }
 
+/* HEADER Y NAVEGACIÓN */
 header {
     background: rgba(5,20,43,.96);
     border-bottom: 1px solid var(--border);
@@ -75,7 +79,7 @@ nav {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
 }
 
 .nav-links a {
@@ -89,35 +93,70 @@ nav {
     color: var(--light);
 }
 
+.badge-new {
+    background: var(--danger);
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 4px;
+    text-transform: uppercase;
+}
+
+/* TICKER DE NOTICIAS DE CIBERATAQUES */
+.ticker-wrap {
+    background: #040e20;
+    border-bottom: 1px solid var(--border);
+    padding: 8px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ticker {
+    display: inline-block;
+    animation: ticker 35s linear infinite;
+}
+
+.ticker-item {
+    display: inline-block;
+    padding: 0 30px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.ticker-item strong {
+    color: var(--danger);
+}
+
+@keyframes ticker {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* HERO SECTION */
 .hero {
-    min-height: 620px;
-    padding: 110px 8%;
+    min-height: 520px;
+    padding: 80px 8%;
     display: flex;
     align-items: center;
-    background:
-    radial-gradient(circle at 80% 40%, #1264b855, transparent 35%),
-    linear-gradient(120deg,#06152e,#0a2851,#104b86);
-    position: relative;
-    overflow: hidden;
+    background: radial-gradient(circle at 80% 40%, #1264b855, transparent 35%), linear-gradient(120deg,#06152e,#0a2851,#104b86);
 }
 
 .hero-content {
     max-width: 850px;
-    position: relative;
-    z-index: 2;
 }
 
 .tag {
     color: var(--light);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     letter-spacing: 3px;
 }
 
 .hero h1 {
-    font-size: clamp(40px,6vw,70px);
-    line-height: 1.12;
-    margin: 22px 0;
+    font-size: clamp(35px, 5vw, 60px);
+    line-height: 1.15;
+    margin: 18px 0;
 }
 
 .hero h1 span {
@@ -125,15 +164,15 @@ nav {
 }
 
 .hero p {
-    max-width: 690px;
+    max-width: 680px;
     color: #d2e4fb;
-    font-size: 18px;
-    margin-bottom: 30px;
+    font-size: 17px;
+    margin-bottom: 25px;
 }
 
 .btn {
     display: inline-block;
-    padding: 14px 25px;
+    padding: 13px 24px;
     border-radius: 8px;
     font-weight: bold;
     font-size: 14px;
@@ -162,34 +201,190 @@ nav {
     background: #168cff20;
 }
 
+/* SECCIONES GENERALES */
 section {
-    padding: 85px 7%;
+    padding: 75px 7%;
 }
 
 .heading {
     text-align: center;
     max-width: 750px;
-    margin: 0 auto 48px;
+    margin: 0 auto 40px;
 }
 
 .heading h2 {
-    font-size: clamp(29px,4vw,40px);
-    margin-bottom: 12px;
-}
-
-.heading p {
-    color: var(--muted);
+    font-size: clamp(28px, 4vw, 38px);
+    margin-bottom: 10px;
 }
 
 .heading h2 span {
     color: var(--light);
 }
 
+.heading p {
+    color: var(--muted);
+}
+
+/* BLOG Y NOTICIAS DE CIBERATAQUES */
+.blog-section {
+    background: #051833;
+}
+
+.blog-controls {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 250px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 16px;
+    background: #081c37;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: white;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: var(--electric);
+}
+
+.filter-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    background: #0a254a;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--blue);
+    color: white;
+    border-color: var(--electric);
+}
+
+.blog-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.blog-card {
+    background: linear-gradient(145deg, #0b2244, #081a34);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: .3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--electric);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.blog-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.blog-content {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.blog-tag {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.tag-ransomware { background: rgba(255, 71, 87, 0.2); color: #ff4757; }
+.tag-zeroday { background: rgba(255, 165, 0, 0.2); color: #ffa502; }
+.tag-phishing { background: rgba(22, 140, 255, 0.2); color: #168cff; }
+
+.blog-date {
+    color: var(--muted);
+}
+
+.blog-content h3 {
+    font-size: 18px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.blog-content p {
+    font-size: 14px;
+    color: #c4d7ef;
+    margin-bottom: 18px;
+    flex: 1;
+}
+
+.blog-footer {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.read-more {
+    color: var(--light);
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* MARCAS Y CATALOGO */
+.brands {
+    background: linear-gradient(180deg,#081a34,#0b2850);
+}
+
 .cards {
     max-width: 1200px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     gap: 25px;
 }
 
@@ -197,98 +392,41 @@ section {
     background: linear-gradient(145deg,#112e55,#0b2040);
     border: 1px solid var(--border);
     border-radius: 15px;
-    padding: 30px;
+    padding: 25px;
     transition: .3s;
 }
 
 .card:hover {
     transform: translateY(-6px);
     border-color: var(--electric);
-    box-shadow: 0 12px 35px #0005;
-}
-
-.icon {
-    width: 62px;
-    height: 62px;
-    border-radius: 14px;
-    background: linear-gradient(135deg,#0866d9,#168cff);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 26px;
-    font-weight: 900;
-    margin-bottom: 20px;
-    box-shadow: 0 5px 20px #168cff35;
-}
-
-.card h3 {
-    color: var(--light);
-    font-size: 19px;
-    margin-bottom: 12px;
-}
-
-.card p {
-    color: #c4d7ef;
-    font-size: 14px;
-}
-
-.card ul {
-    padding-left: 18px;
-    margin-top: 15px;
-    color: #c4d7ef;
-    font-size: 14px;
-}
-
-.card li {
-    margin-bottom: 7px;
-}
-
-.services {
-    background: #091d39;
-}
-
-.brands {
-    background: linear-gradient(180deg,#081a34,#0b2850);
-}
-
-/* MARCAS MEJORADAS CON LOGOS E IMÁGENES */
-.brand-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .brand-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .brand-logo {
-    max-height: 40px;
-    max-width: 130px;
+    max-height: 38px;
+    max-width: 120px;
     object-fit: contain;
-    background: #ffffff;
-    padding: 6px 12px;
-    border-radius: 8px;
 }
 
 .brand-label {
-    display: inline-block;
     color: #a9d8ff;
     background: #168cff20;
     border: 1px solid var(--border);
-    padding: 5px 12px;
-    border-radius: 30px;
+    padding: 4px 10px;
+    border-radius: 20px;
     font-size: 11px;
     font-weight: bold;
 }
 
 .product-img {
     width: 100%;
-    height: 180px;
+    height: 160px;
     object-fit: cover;
     border-radius: 10px;
     margin: 15px 0;
@@ -306,40 +444,13 @@ section {
     font-size: 13px;
     color: #d2e4fb;
     margin-bottom: 6px;
-
 }
 
 .catalog-item strong {
     color: var(--light);
 }
 
-.benefits {
-    background: #0a2243;
-}
-
-.about {
-    background: linear-gradient(120deg,#071831,#103d70);
-}
-
-.about-content {
-    max-width: 900px;
-    text-align: center;
-    margin: auto;
-}
-
-.about-content p {
-    color: #c7dcf5;
-    margin: 18px 0;
-}
-
-.about-content h2 {
-    font-size: 35px;
-}
-
-.about-content h2 span {
-    color: var(--light);
-}
-
+/* CONTACTO Y FORMULARIO */
 .contact {
     background: linear-gradient(145deg,#071a36,#103a6b);
 }
@@ -350,99 +461,47 @@ section {
     display: grid;
     grid-template-columns: .8fr 1.2fr;
     gap: 35px;
-    align-items: start;
-}
-
-.contact-info {
-    padding: 25px 10px;
-}
-
-.contact-info h2 {
-    font-size: 34px;
-    margin-bottom: 20px;
-}
-
-.contact-info p {
-    color: #c4d8f0;
-    margin-bottom: 20px;
 }
 
 .contact-info .phone {
     font-size: 23px;
     color: var(--light);
     font-weight: bold;
+    margin: 10px 0 20px;
 }
 
 .contact-form {
     background: #ffffff0b;
     border: 1px solid var(--border);
     border-radius: 18px;
-    padding: 32px;
-}
-
-.contact-form h3 {
-    font-size: 23px;
-    margin-bottom: 8px;
-}
-
-.contact-form > p {
-    color: var(--muted);
-    font-size: 13px;
-    margin-bottom: 25px;
+    padding: 30px;
 }
 
 .form-group {
-    margin-bottom: 17px;
+    margin-bottom: 15px;
 }
 
 .form-group label {
     display: block;
     font-size: 13px;
     font-weight: bold;
-    color: #d9eaff;
-    margin-bottom: 7px;
+    margin-bottom: 6px;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+.form-group input, .form-group select, .form-group textarea {
     width: 100%;
-    padding: 13px 14px;
+    padding: 12px;
     background: #081c37;
     color: white;
     border: 1px solid #31547e;
     border-radius: 8px;
     outline: none;
     font-size: 14px;
-    font-family: inherit;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: var(--electric);
-    box-shadow: 0 0 0 3px #168cff20;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #819ab9;
-}
-
-.form-group select option {
-    background: #081c37;
-    color: white;
 }
 
 .form-group textarea {
     resize: vertical;
-    min-height: 100px;
-}
-
-.contact-form button {
-    width: 100%;
-    border: none;
-    font-size: 15px;
+    min-height: 90px;
 }
 
 .privacy {
@@ -457,17 +516,13 @@ section {
     text-decoration: underline;
 }
 
+/* FOOTER */
 footer {
-    padding: 35px 20px;
+    padding: 30px 20px;
     text-align: center;
     background: #040e20;
     color: #9fb5d2;
     font-size: 13px;
-}
-
-footer strong {
-    color: white;
-    font-size: 20px;
 }
 
 footer a {
@@ -479,16 +534,16 @@ footer a {
     bottom: 22px;
     right: 22px;
     z-index: 200;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     background: #168cff;
     color: white;
     display: grid;
     place-items: center;
-    font-size: 27px;
+    font-size: 24px;
     font-weight: bold;
-    box-shadow: 0 5px 25px #0008;
+    box-shadow: 0 5px 20px #0008;
     transition: .3s;
 }
 
@@ -497,7 +552,7 @@ footer a {
     background: #0866d9;
 }
 
-/* MODAL DE AVISO DE PRIVACIDAD */
+/* MODALES */
 .modal {
     display: none;
     position: fixed;
@@ -506,12 +561,12 @@ footer a {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.8);
     backdrop-filter: blur(5px);
 }
 
 .modal-content {
-    background-color: var(--dark);
+    background: var(--dark);
     margin: 5% auto;
     padding: 30px;
     border: 1px solid var(--border);
@@ -536,48 +591,23 @@ footer a {
 }
 
 @media(max-width:850px) {
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-
-    nav {
-        flex-direction: column;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-}
-
-@media(max-width:600px) {
-    .hero {
-        min-height: 540px;
-        padding: 75px 7%;
-    }
-
-    section {
-        padding: 65px 6%;
-    }
-
-    .nav-links a {
-        font-size: 12px;
-    }
-
-    .contact-form {
-        padding: 22px;
-    }
-
-    .btn {
-        display: block;
-        text-align: center;
-    }
+    .contact-container { grid-template-columns: 1fr; }
+    nav { flex-direction: column; }
+    .nav-links { flex-wrap: wrap; justify-content: center; }
 }
 </style>
 </head>
 
 <body>
+
+<!-- BARRA DE CIBERATIENTA EN TIEMPO REAL -->
+<div class="ticker-wrap">
+    <div class="ticker">
+        <div class="ticker-item"><strong>ALERTA VULNERABILIDAD:</strong> Zero-Day detectado en componentes de red empresariales. Se solicita parchear Firewalls inmediatamente.</div>
+        <div class="ticker-item"><strong>ALERTA RANSOMWARE:</strong> Incremento del 40% en ataques a sector empresarial en LATAM durante el último trimestre.</div>
+        <div class="ticker-item"><strong>RECOMENDACIÓN DE SEGURIDAD:</strong> Implemente MFA y segmentación de red con Firewalls Fortinet/SonicWall.</div>
+    </div>
+</div>
 
 <header>
 <nav>
@@ -587,9 +617,8 @@ footer a {
 
     <div class="nav-links">
         <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
+        <a href="#blog">Noticias & Ciberataques <span class="badge-new">Blog</span></a>
         <a href="#marcas">Marcas & Catálogo</a>
-        <a href="#nosotros">Nosotros</a>
         <a href="#contacto">Contacto</a>
     </div>
 </nav>
@@ -597,550 +626,353 @@ footer a {
 
 <main>
 
-<!-- INICIO -->
-
+<!-- HERO -->
 <section class="hero" id="inicio">
 <div class="hero-content">
-
-    <div class="tag">TECNOLOGÍA • SEGURIDAD • INNOVACIÓN</div>
-
-    <h1>
-        Protegemos tu empresa.
-        <span>Blindamos tu futuro digital.</span>
-    </h1>
-
-    <p>
-        Soluciones profesionales de ciberseguridad empresarial,
-        firewalls de nueva generación, switches administrables, 
-        Access Points de alta velocidad y protección de redes corporativas.
-    </p>
-
-    <a href="#marcas" class="btn btn-primary">
-        VER SOLUCIONES Y MARCAS →
-    </a>
-
-    <a href="#contacto" class="btn btn-outline">
-        SOLICITAR ASESORÍA
-    </a>
-
+    <div class="tag">TECNOLOGÍA • SEGURIDAD • INTELIGENCIA DE AMENAZAS</div>
+    <h1>Protegemos tu empresa. <span>Blindamos tu futuro digital.</span></h1>
+    <p>Soluciones profesionales de ciberseguridad empresarial, firewalls de nueva generación, switches, access points y monitoreo frente a las últimas amenazas del ciberespacio.</p>
+    <a href="#marcas" class="btn btn-primary">VER CATÁLOGO HARDWARE →</a>
+    <a href="#blog" class="btn btn-outline">LEER RADAR DE AMENAZAS</a>
 </div>
 </section>
 
-<!-- SERVICIOS -->
-
-<section class="services" id="servicios">
-
+<!-- SECCIÓN BLOG / RADAR DE CIBERATAQUES -->
+<section class="blog-section" id="blog">
 <div class="heading">
-    <h2>Nuestros <span>Servicios</span></h2>
-    <p>
-        Tecnología especializada para proteger,
-        administrar y fortalecer tu infraestructura empresarial.
-    </p>
+    <h2>Radar de <span>Ciberataques & Noticias</span></h2>
+    <p>Mantente informado sobre las últimas amenazas, vulnerabilidades zero-day y noticias de ciberseguridad para proteger la infraestructura de tu organización.</p>
 </div>
 
-<div class="cards">
-
-    <article class="card">
-        <div class="icon">01</div>
-        <h3>Firewalls Empresariales</h3>
-        <p>
-            Implementación, configuración y administración
-            de soluciones de seguridad perimetral para
-            proteger tu empresa frente a amenazas externas.
-        </p>
-    </article>
-
-    <article class="card">
-        <div class="icon">02</div>
-        <h3>Switches & Conectividad</h3>
-        <p>
-            Conmutación y segmentación de redes LAN corporativas con switches administrables PoE/PoE+ para alto tráfico de datos.
-        </p>
-    </article>
-
-    <article class="card">
-        <div class="icon">03</div>
-        <h3>Access Points & Wi-Fi 6</h3>
-        <p>
-            Cobertura inalámbrica empresarial segura, Wi-Fi 6 de alta densidad y redes corporativas/visitantes independientes.
-        </p>
-    </article>
-
-    <article class="card">
-        <div class="icon">04</div>
-        <h3>Protección Endpoint</h3>
-        <p>
-            Protección de computadoras, servidores y
-            dispositivos contra malware, ransomware y amenazas informáticas.
-        </p>
-    </article>
-
-    <article class="card">
-        <div class="icon">05</div>
-        <h3>Monitoreo de Infraestructura</h3>
-        <p>
-            Supervisión continua de equipos, conexiones y recursos
-            tecnológicos para identificar posibles incidencias.
-        </p>
-    </article>
-
-    <article class="card">
-        <div class="icon">06</div>
-        <h3>Consultoría Tecnológica</h3>
-        <p>
-            Asesoría especializada para seleccionar e implementar
-            soluciones de ciberseguridad a la medida de tu organización.
-        </p>
-    </article>
-
-</div>
-</section>
-
-<!-- MARCAS Y CATÁLOGO COMPLETO -->
-
-<section class="brands" id="marcas">
-
-<div class="heading">
-    <h2>Catálogo de Soluciones por <span>Marca</span></h2>
-    <p>
-        Integración de tecnología de clase mundial: Firewalls, Switches, Access Points y Licenciamiento.
-    </p>
+<div class="blog-controls">
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Buscar ataques, malware, marcas (ej. Ransomware, Fortinet)...">
+    </div>
+    <div class="filter-tags">
+        <button class="filter-btn active" onclick="filterArticles('all')">Todos</button>
+        <button class="filter-btn" onclick="filterArticles('ransomware')">Ransomware</button>
+        <button class="filter-btn" onclick="filterArticles('zeroday')">Zero-Day</button>
+        <button class="filter-btn" onclick="filterArticles('phishing')">Phishing & Redes</button>
+    </div>
 </div>
 
-<div class="cards">
-
-    <!-- FORTINET -->
-    <article class="card brand-card">
-        <div>
-            <div class="brand-header">
-                <img src="https://img.shields.io/badge/FORTINET-red?style=for-the-badge&logo=fortinet&logoColor=white" alt="Fortinet Logo" class="brand-logo" style="background:transparent; padding:0;">
-                <span class="brand-label">SECURITY FABRIC</span>
+<div class="blog-grid" id="blogGrid">
+    <!-- NOTICIA 1 -->
+    <article class="blog-card" data-category="ransomware">
+        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Ransomware" class="blog-img">
+        <div class="blog-content">
+            <div class="blog-meta">
+                <span class="blog-tag tag-ransomware">Ransomware</span>
+                <span class="blog-date">Nov 2026</span>
             </div>
-            
-            <h3>FORTINET</h3>
-            <p>Ecosistema integral de seguridad perimetral e inalámbrica administrada centralmente.</p>
-
-            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" alt="Equipos Fortinet" class="product-img">
-
-            <div class="catalog-list">
-                <div class="catalog-item"><strong>Firewalls (FortiGate):</strong> Modelos Serie FG-40F, FG-60F, FG-80F y Serie 100F con inspección de tráfico UTM.</div>
-                <div class="catalog-item"><strong>Switches (FortiSwitch):</strong> Conmutadores de acceso e interconexión integrados con FortiGate.</div>
-                <div class="catalog-item"><strong>Access Points (FortiAP):</strong> Puntos de acceso Wi-Fi 6 interiores y exteriores de alta disponibilidad.</div>
+            <h3>Oleada de Ransomware orientada a PyMEs mediante acceso VPN no protegido</h3>
+            <p>Nuevas variantes de cibercrimen explotan credenciales robadas en conexiones remotas que no cuentan con autenticación de doble factor (MFA).</p>
+            <div class="blog-footer">
+                <span class="read-more" onclick="openArticleModal('Ransomware VPN', 'Los atacantes están utilizando listas de credenciales filtradas para ingresar a redes corporativas mediante puertos VPN tradicionales. Se recomienda implementar Firewalls con inspección profunda de paquetes y filtrado IP estricto.')">Leer Análisis Completo →</span>
             </div>
         </div>
+    </article>
 
-        <a href="#contacto" class="btn btn-primary" style="margin-top: 15px; text-align: center;">
-            COTIZAR FORTINET →
-        </a>
+    <!-- NOTICIA 2 -->
+    <article class="blog-card" data-category="zeroday">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Zero Day" class="blog-img">
+        <div class="blog-content">
+            <div class="blog-meta">
+                <span class="blog-tag tag-zeroday">Zero-Day</span>
+                <span class="blog-date">Nov 2026</span>
+            </div>
+            <h3>Reportan vulnerabilidad crítica de ejecución remota de código en routers comerciales</h3>
+            <p>Investigadores de ciberseguridad descubren una falla que permite a atacantes tomar el control del tráfico de red sin interacción del usuario.</p>
+            <div class="blog-footer">
+                <span class="read-more" onclick="openArticleModal('Vulnerabilidad Zero-Day', 'La falla afecta a equipos de enrutamiento antiguos. La mitigación inmediata es actualizar el firmware a la versión parcheada o sustituir el pertrecho perimetral por un Firewall Next-Gen (NGFW) como SonicWall TZ80 o Fortinet FortiGate.')">Leer Análisis Completo →</span>
+            </div>
+        </div>
+    </article>
+
+    <!-- NOTICIA 3 -->
+    <article class="blog-card" data-category="phishing">
+        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Phishing Redes" class="blog-img">
+        <div class="blog-content">
+            <div class="blog-meta">
+                <span class="blog-tag tag-phishing">Phishing & Redes</span>
+                <span class="blog-date">Oct 2026</span>
+            </div>
+            <h3>Ataques Man-in-the-Middle en redes Wi-Fi empresariales no segmentadas</h3>
+            <p>Intercepción de tráfico en redes corporativas por falta de aislamiento entre red de empleados y visitantes en Access Points convencionales.</p>
+            <div class="blog-footer">
+                <span class="read-more" onclick="openArticleModal('Ataques Wi-Fi', 'La falta de VLANs y segmentación permite a dispositivos infectados inspeccionar el tráfico interno. Solución: Desplegar Access Points empresariales Wi-Fi 6 (Sophos / Fortinet) con redes VLAN independientes.')">Leer Análisis Completo →</span>
+            </div>
+        </div>
+    </article>
+</div>
+</section>
+
+<!-- MARCAS Y CATÁLOGO HARDWARE -->
+<section class="brands" id="marcas">
+<div class="heading">
+    <h2>Catálogo de Soluciones por <span>Marca</span></h2>
+    <p>Hardware perimetral e inalámbrico de clase mundial para neutralizar las amenazas de la red.</p>
+</div>
+
+<div class="cards">
+    <!-- FORTINET -->
+    <article class="card">
+        <div class="brand-header">
+            <img src="https://img.shields.io/badge/FORTINET-red?style=for-the-badge&logo=fortinet&logoColor=white" alt="Fortinet Logo" class="brand-logo">
+            <span class="brand-label">SECURITY FABRIC</span>
+        </div>
+        <h3>FORTINET</h3>
+        <p>Ecosistema integral de seguridad perimetral e inalámbrica con administración unificada.</p>
+        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" alt="Fortinet" class="product-img">
+        <div class="catalog-list">
+            <div class="catalog-item"><strong>Firewalls:</strong> FortiGate FG-40F, FG-60F, FG-80F, FG-100F.</div>
+            <div class="catalog-item"><strong>Switches:</strong> FortiSwitch con gestión integrada al firewall.</div>
+            <div class="catalog-item"><strong>Access Points:</strong> FortiAP Wi-Fi 6 de alta densidad.</div>
+        </div>
+        <a href="#contacto" class="btn btn-primary" style="display:block; text-align:center;">COTIZAR FORTINET →</a>
     </article>
 
     <!-- SOPHOS -->
-    <article class="card brand-card">
-        <div>
-            <div class="brand-header">
-                <img src="https://img.shields.io/badge/SOPHOS-005B94?style=for-the-badge&logo=sophos&logoColor=white" alt="Sophos Logo" class="brand-logo" style="background:transparent; padding:0;">
-                <span class="brand-label">SYNCHRONIZED SECURITY</span>
-            </div>
-
-            <h3>SOPHOS</h3>
-            <p>Protección sincronizada entre firewall y endpoints con inteligencia de amenazas por IA.</p>
-
-            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="Equipos Sophos" class="product-img">
-
-            <div class="catalog-list">
-                <div class="catalog-item"><strong>Firewalls (Sophos XGS):</strong> Arquitectura Xstream de alto rendimiento (XGS 87, 107, 116, 126).</div>
-                <div class="catalog-item"><strong>Switches (Sophos Switch):</strong> Conmutadores de capa 2/3 administrados mediante Sophos Central.</div>
-                <div class="catalog-item"><strong>Access Points (Sophos AP6):</strong> Redes inalámbricas seguras administradas desde la nube.</div>
-            </div>
+    <article class="card">
+        <div class="brand-header">
+            <img src="https://img.shields.io/badge/SOPHOS-005B94?style=for-the-badge&logo=sophos&logoColor=white" alt="Sophos Logo" class="brand-logo">
+            <span class="brand-label">SYNCHRONIZED</span>
         </div>
-
-        <a href="#contacto" class="btn btn-primary" style="margin-top: 15px; text-align: center;">
-            COTIZAR SOPHOS →
-        </a>
+        <h3>SOPHOS</h3>
+        <p>Seguridad sincronizada de última generación entre el Firewall y los endpoints.</p>
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="Sophos" class="product-img">
+        <div class="catalog-list">
+            <div class="catalog-item"><strong>Firewalls:</strong> Sophos XGS 87, 107, 116, 126.</div>
+            <div class="catalog-item"><strong>Switches:</strong> Sophos Switch capa 2/3 integrados a Sophos Central.</div>
+            <div class="catalog-item"><strong>Access Points:</strong> Sophos AP6 Series Wi-Fi 6.</div>
+        </div>
+        <a href="#contacto" class="btn btn-primary" style="display:block; text-align:center;">COTIZAR SOPHOS →</a>
     </article>
 
     <!-- CISCO -->
-    <article class="card brand-card">
-        <div>
-            <div class="brand-header">
-                <img src="https://img.shields.io/badge/CISCO-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white" alt="Cisco Logo" class="brand-logo" style="background:transparent; padding:0;">
-                <span class="brand-label">ENTERPRISE NETWORKS</span>
-            </div>
-
-            <h3>CISCO / MERAKI</h3>
-            <p>Infraestructura de red robusta, escalable y con gestión basada en la nube para grandes empresas.</p>
-
-            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Equipos Cisco" class="product-img">
-
-            <div class="catalog-list">
-                <div class="catalog-item"><strong>Firewalls (Secure Firewall / Meraki MX):</strong> Protección avanzada contra intrusiones y VPN SD-WAN.</div>
-                <div class="catalog-item"><strong>Switches (Catalyst / Meraki MS):</strong> Conmutadores empresariales modularizables de altísimo rendimiento.</div>
-                <div class="catalog-item"><strong>Access Points (Catalyst / Meraki MR):</strong> Soluciones Wi-Fi 6E para entornos corporativos de alta densidad.</div>
-            </div>
+    <article class="card">
+        <div class="brand-header">
+            <img src="https://img.shields.io/badge/CISCO-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white" alt="Cisco Logo" class="brand-logo">
+            <span class="brand-label">ENTERPRISE</span>
         </div>
-
-        <a href="#contacto" class="btn btn-primary" style="margin-top: 15px; text-align: center;">
-            COTIZAR CISCO →
-        </a>
+        <h3>CISCO / MERAKI</h3>
+        <p>Infraestructura escalable con gestión centralizada en la nube para empresas conectadas.</p>
+        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Cisco" class="product-img">
+        <div class="catalog-list">
+            <div class="catalog-item"><strong>Firewalls:</strong> Cisco Secure Firewall / Meraki MX Series.</div>
+            <div class="catalog-item"><strong>Switches:</strong> Cisco Catalyst / Meraki MS Series.</div>
+            <div class="catalog-item"><strong>Access Points:</strong> Meraki MR Series Wi-Fi 6E.</div>
+        </div>
+        <a href="#contacto" class="btn btn-primary" style="display:block; text-align:center;">COTIZAR CISCO →</a>
     </article>
 
     <!-- SONICWALL -->
-    <article class="card brand-card">
-        <div>
-            <div class="brand-header">
-                <img src="https://img.shields.io/badge/SONICWALL-FF6600?style=for-the-badge&logo=sonicwall&logoColor=white" alt="SonicWall Logo" class="brand-logo" style="background:transparent; padding:0;">
-                <span class="brand-label">BOUNDLESS CYBERSECURITY</span>
-            </div>
-
-            <h3>SONICWALL</h3>
-            <p>Seguridad informática perimetral y soluciones inalámbricas rentables para PyMEs y Corporativos.</p>
-
-            <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80" alt="Equipos SonicWall" class="product-img">
-
-            <div class="catalog-list">
-                <div class="catalog-item"><strong>Firewalls (Serie TZ & NSa):</strong> Modelos TZ80, TZ270, TZ370, TZ470 y Serie NSa para empresas en crecimiento.</div>
-                <div class="catalog-item"><strong>Switches (SonicWall Switch):</strong> Conmutación administrada e integrada con firewall perimetral.</div>
-                <div class="catalog-item"><strong>Access Points (SonicWave):</strong> Cobertura Wi-Fi segura con detección automática de amenazas inalámbricas.</div>
-            </div>
+    <article class="card">
+        <div class="brand-header">
+            <img src="https://img.shields.io/badge/SONICWALL-FF6600?style=for-the-badge&logo=sonicwall&logoColor=white" alt="SonicWall Logo" class="brand-logo">
+            <span class="brand-label">BOUNDLESS</span>
         </div>
-
-        <a href="#contacto" class="btn btn-primary" style="margin-top: 15px; text-align: center;">
-            COTIZAR SONICWALL →
-        </a>
+        <h3>SONICWALL</h3>
+        <p>Seguridad perimetral avanzada y rentable diseñada para PyMEs y corporativos.</p>
+        <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80" alt="SonicWall" class="product-img">
+        <div class="catalog-list">
+            <div class="catalog-item"><strong>Firewalls:</strong> SonicWall TZ80, TZ270, TZ370, TZ470 y Serie NSa.</div>
+            <div class="catalog-item"><strong>Switches:</strong> SonicWall Switch administrables.</div>
+            <div class="catalog-item"><strong>Access Points:</strong> SonicWave Wi-Fi seguro.</div>
+        </div>
+        <a href="#contacto" class="btn btn-primary" style="display:block; text-align:center;">COTIZAR SONICWALL →</a>
     </article>
-
-</div>
-</section>
-
-<!-- BENEFICIOS -->
-
-<section class="benefits">
-
-<div class="heading">
-    <h2>¿Por qué proteger tu <span>empresa?</span></h2>
-    <p>
-        Una infraestructura segura es fundamental
-        para mantener la continuidad operativa de tu negocio.
-    </p>
-</div>
-
-<div class="cards">
-
-    <article class="card">
-        <div class="icon">01</div>
-        <h3>Protección de datos</h3>
-        <p>
-            Reduce los riesgos de exposición y acceso
-            no autorizado a la información sensible de tu empresa.
-        </p>
-    </article>
-
-    <article class="card">
-        <div class="icon">02</div>
-        <h3>Continuidad Operativa</h3>
-        <p>
-            Evita caídas de red y ataques de Ransomware garantizando la continuidad del negocio.
-        </p>
-    </article>
-
-    <article class="card">
-        <div class="icon">03</div>
-        <h3>Control y Visibilidad</h3>
-        <p>
-            Administra conexiones, usuarios, aplicaciones consumidas y dispositivos de forma centralizada.
-        </p>
-    </article>
-
-</div>
-</section>
-
-<!-- NOSOTROS -->
-
-<section class="about" id="nosotros">
-
-<div class="about-content">
-
-    <h2>Conoce <span>CYBERSECURITY</span></h2>
-
-    <p>
-        Somos especialistas en integraciones tecnológicas de ciberseguridad, redes y enlaces seguros para empresas que buscan proteger sus activos digitales con marcas líderes del mercado.
-    </p>
-
-    <p>
-        Brindamos diseño, arquitectura de red, venta de licenciamiento, suministro de hardware y soporte técnico especializado.
-    </p>
-
-    <h2 style="color:#56b5ff;margin-top:30px;">
-        Tu seguridad es nuestra prioridad.
-    </h2>
-
-    <a href="#contacto" class="btn btn-primary">
-        CONTACTAR CON UN ASESOR
-    </a>
-
 </div>
 </section>
 
 <!-- CONTACTO Y FORMULARIO -->
-
 <section class="contact" id="contacto">
-
 <div class="heading">
     <h2>Solicita una <span>asesoría o cotización</span></h2>
-    <p>
-        Cuéntanos tus requerimientos. Nuestro equipo atenderá tu solicitud por WhatsApp o correo.
-    </p>
+    <p>Protege tu red ante los ciberataques actuales. Te atendemos directo por WhatsApp o correo.</p>
 </div>
 
 <div class="contact-container">
-
     <div class="contact-info">
-
         <h2>Hablemos de seguridad.</h2>
-
-        <p>
-            ¿Necesitas cotizar o implementar un Firewall, Switch, Access Point o renovar tu licenciamiento empresarial?
-        </p>
-
-        <p>
-            Completa el formulario y se generará una solicitud directa hacia nuestra línea de atención.
-        </p>
-
-        <p>
-            <strong>WhatsApp de atención:</strong>
-        </p>
-
+        <p>¿Necesitas implementar un Firewall, Switch, Access Point o consultar la mitigación de un ciberataque reciente?</p>
+        <p><strong>WhatsApp de atención directa:</strong></p>
         <div class="phone">563 509 3209</div>
-
-        <a href="https://wa.me/525635093209"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-primary">
-           CONTACTAR DIRECTAMENTE POR WHATSAPP
-        </a>
-
+        <a href="https://wa.me/525635093209" target="_blank" rel="noopener noreferrer" class="btn btn-primary">CONTACTAR POR WHATSAPP</a>
     </div>
 
     <form class="contact-form" id="leadForm">
-
         <h3>Formulario de contacto</h3>
-
-        <p>
-            Completa tus datos para solicitar información.
-            Los campos marcados son obligatorios.
-        </p>
 
         <div class="form-group">
             <label for="nombre">Nombre completo *</label>
-            <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                placeholder="Escribe tu nombre"
-                autocomplete="name"
-                required>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
         </div>
 
         <div class="form-group">
             <label for="telefono">Teléfono / WhatsApp *</label>
-            <input
-                type="tel"
-                id="telefono"
-                name="telefono"
-                placeholder="Tu número de contacto"
-                autocomplete="tel"
-                required>
+            <input type="tel" id="telefono" name="telefono" placeholder="Número de contacto" required>
         </div>
 
         <div class="form-group">
             <label for="correo">Correo electrónico *</label>
-            <input
-                type="email"
-                id="correo"
-                name="correo"
-                placeholder="ejemplo@empresa.com"
-                autocomplete="email"
-                required>
+            <input type="email" id="correo" name="correo" placeholder="correo@empresa.com" required>
         </div>
 
         <div class="form-group">
-            <label for="empresa">Nombre de tu empresa</label>
-            <input
-                type="text"
-                id="empresa"
-                name="empresa"
-                placeholder="Nombre de la empresa"
-                autocomplete="organization">
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa">
         </div>
 
         <div class="form-group">
-            <label for="solucion">¿Qué solución te interesa? *</label>
-
+            <label for="solucion">¿Qué solución o tema te interesa? *</label>
             <select id="solucion" name="solucion" required>
                 <option value="">Selecciona una opción</option>
                 <option>Soluciones Fortinet (Firewall, Switch, AP)</option>
                 <option>Soluciones Sophos (Firewall, Switch, AP)</option>
                 <option>Soluciones Cisco / Meraki</option>
-                <option>Soluciones SonicWall (Firewalls TZ80 / NSa)</option>
-                <option>Seguridad de Redes y WiFi Empresarial</option>
-                <option>Consultoría y Renovación de Licencias</option>
-                <option>Otra solución</option>
+                <option>Soluciones SonicWall (Firewall TZ80, NSa)</option>
+                <option>Asesoría ante un Ciberataque / Vulnerabilidad</option>
+                <option>Otra consulta</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="mensaje">Cuéntanos qué necesitas</label>
-            <textarea
-                id="mensaje"
-                name="mensaje"
-                placeholder="Describe brevemente la cantidad de usuarios o equipos que requieres..."></textarea>
+            <label for="mensaje">Detalles del requerimiento</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Describe brevemente tus requerimientos o dudas..."></textarea>
         </div>
 
         <div class="form-group">
             <label>
-                <input
-                    type="checkbox"
-                    id="consentimiento"
-                    required
-                    style="width:auto;margin-right:7px;">
-                Acepto que CYBERSECURITY utilice mis datos para atender mi solicitud conforme al <a href="#" id="openPrivacyLink">Aviso de Privacidad</a>.
+                <input type="checkbox" id="consentimiento" required style="width:auto;margin-right:7px;">
+                Acepto el uso de mis datos conforme al <a href="#" id="openPrivacyLink">Aviso de Privacidad</a>.
             </label>
         </div>
 
-        <button type="submit" class="btn btn-primary">
-            ENVIAR SOLICITUD POR WHATSAPP →
-        </button>
+        <button type="submit" class="btn btn-primary" style="width:100%; border:none;">ENVIAR SOLICITUD POR WHATSAPP →</button>
 
         <div class="privacy">
-            Tus datos están protegidos. Consulta nuestro <a href="#" id="openPrivacyBtn">Aviso de Privacidad</a> para mayor información.
+            Tus datos se enviarán directamente a nuestro canal de atención en WhatsApp. Consulta nuestro <a href="#" id="openPrivacyBtn">Aviso de Privacidad</a>.
         </div>
-
     </form>
-
 </div>
 </section>
 
 </main>
 
-<!-- FOOTER -->
-
 <footer>
-
     <strong>CYBERSECURITY</strong>
-
     <p>Seguridad • Tecnología • Protección Digital</p>
-
-    <p>Especialistas en soluciones de ciberseguridad y redes empresariales.</p>
-
     <p>WhatsApp: 563 509 3209</p>
-
     <p style="margin-top:15px;">
         <a href="#" id="footerPrivacyLink">Aviso de Privacidad</a> | © <span id="year"></span> CYBERSECURITY. Todos los derechos reservados.
     </p>
-
 </footer>
 
-<!-- BOTÓN FLOTANTE WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/525635093209" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">W</a>
 
-<a class="whatsapp"
-   href="https://wa.me/525635093209"
-   target="_blank"
-   rel="noopener noreferrer"
-   aria-label="Contactar por WhatsApp">
-   W
-</a>
+<!-- MODAL DE LECTURA DE ARTÍCULO -->
+<div id="articleModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('articleModal')">&times;</span>
+    <h2 id="modalArticleTitle" style="color: var(--light); margin-bottom: 15px;"></h2>
+    <p id="modalArticleBody" style="line-height: 1.7; color: #d2e4fb;"></p>
+    <div style="margin-top:20px;">
+        <a href="#contacto" onclick="closeModal('articleModal')" class="btn btn-primary">CONSULTAR MITIGACIÓN PARA MI EMPRESA</a>
+    </div>
+  </div>
+</div>
 
-<!-- MODAL DE AVISO DE PRIVACIDAD -->
+<!-- MODAL AVISO DE PRIVACIDAD -->
 <div id="privacyModal" class="modal">
   <div class="modal-content">
-    <span class="close-modal">&times;</span>
+    <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
     <h2 style="color: var(--light); margin-bottom: 15px;">Aviso de Privacidad</h2>
-    <p>En <strong>CYBERSECURITY</strong>, la confidencialidad y protección de sus datos personales es una prioridad. Los datos recabados a través de este sitio web (nombre, correo electrónico, teléfono y empresa) se utilizarán exclusivamente para:</p>
-    <ul style="margin: 15px 0 15px 20px;">
-        <li>Proporcionar cotizaciones e información de soluciones tecnológicas solicitadas.</li>
-        <li>Dar seguimiento a consultas comerciales y soporte técnico.</li>
-        <li>Establecer contacto directo vía telefónica o WhatsApp.</li>
-    </ul>
-    <p>Sus datos no serán transferidos ni vendidos a terceros bajo ninguna circunstancia. Para ejercer sus derechos de acceso, rectificación, cancelación u oposición (ARCO), puede contactarnos directamente a través de nuestras vías oficiales de atención.</p>
+    <p>En <strong>CYBERSECURITY</strong>, protegemos la confidencialidad de tus datos personales. La información recabada (Nombre, Teléfono, Correo y Empresa) se usará de forma exclusiva para responder cotizaciones, consultas de ciberseguridad y brindar soporte sobre equipamiento de red.</p>
+    <p style="margin-top:10px;">Tus datos no serán transferidos ni compartidos con terceros.</p>
   </div>
 </div>
 
 <script>
-
 // AÑO AUTOMÁTICO
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// MODAL AVISO DE PRIVACIDAD
-const modal = document.getElementById("privacyModal");
-const btnOpenLink = document.getElementById("openPrivacyLink");
-const btnOpenBtn = document.getElementById("openPrivacyBtn");
-const btnFooterLink = document.getElementById("footerPrivacyLink");
-const closeModalBtn = document.getElementsByClassName("close-modal")[0];
+// MODALES
+function openModal(id) { document.getElementById(id).style.display = "block"; }
+function closeModal(id) { document.getElementById(id).style.display = "none"; }
 
-function showPrivacy(e) {
-    e.preventDefault();
-    modal.style.display = "block";
-}
+document.getElementById("openPrivacyLink").onclick = (e) => { e.preventDefault(); openModal('privacyModal'); };
+document.getElementById("openPrivacyBtn").onclick = (e) => { e.preventDefault(); openModal('privacyModal'); };
+document.getElementById("footerPrivacyLink").onclick = (e) => { e.preventDefault(); openModal('privacyModal'); };
 
-btnOpenLink.onclick = showPrivacy;
-btnOpenBtn.onclick = showPrivacy;
-btnFooterLink.onclick = showPrivacy;
-
-closeModalBtn.onclick = function() {
-    modal.style.display = "none";
+function openArticleModal(title, text) {
+    document.getElementById("modalArticleTitle").innerText = title;
+    document.getElementById("modalArticleBody").innerText = text;
+    openModal('articleModal');
 }
 
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
     }
 }
 
-// FORMULARIO CON ENVÍO A WHATSAPP
-document.getElementById("leadForm").addEventListener(
-    "submit",
-    function(event) {
+// FILTRADO Y BÚSQUEDA DE NOTICIAS BLOG
+function filterArticles(category) {
+    const cards = document.querySelectorAll('.blog-card');
+    const btns = document.querySelectorAll('.filter-btn');
+    
+    btns.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
 
-        event.preventDefault();
-
-        const nombre = document.getElementById("nombre").value.trim();
-        const telefono = document.getElementById("telefono").value.trim();
-        const correo = document.getElementById("correo").value.trim();
-        const empresa = document.getElementById("empresa").value.trim();
-        const solucion = document.getElementById("solucion").value;
-        const mensaje = document.getElementById("mensaje").value.trim();
-        const consentimiento = document.getElementById("consentimiento").checked;
-
-        if (!nombre || !telefono || !correo || !solucion || !consentimiento) {
-            alert("Por favor, completa los campos obligatorios.");
-            return;
+    cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
         }
+    });
+}
 
-        const texto =
-`NUEVO CLIENTE - CYBERSECURITY
+document.getElementById('searchInput').addEventListener('keyup', function() {
+    const value = this.value.toLowerCase();
+    const cards = document.querySelectorAll('.blog-card');
 
-DATOS DEL CONTACTO
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (text.includes(value)) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});
+
+// FORMULARIO A WHATSAPP
+document.getElementById("leadForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const telefono = document.getElementById("telefono").value.trim();
+    const correo = document.getElementById("correo").value.trim();
+    const empresa = document.getElementById("empresa").value.trim();
+    const solucion = document.getElementById("solucion").value;
+    const mensaje = document.getElementById("mensaje").value.trim();
+
+    const texto = 
+`NUEVO CONTACTO DESDE LA WEB - CYBERSECURITY
+
 Nombre: ${nombre}
 Teléfono: ${telefono}
-Correo electrónico: ${correo}
+Correo: ${correo}
 Empresa: ${empresa || "No especificada"}
 
-SOLICITUD DE SOLUCIÓN
-Interés: ${solucion}
+Solución/Interés: ${solucion}
+Detalles: ${mensaje || "Sin mensaje adicional"}`;
 
-Mensaje / Requerimiento:
-${mensaje || "Sin mensaje adicional"}
-
-Solicitud enviada desde la web.`;
-
-        const numeroWhatsApp = "525635093209";
-
-        const url = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(texto);
-
-        window.open(url, "_blank");
-    }
-);
-
+    const url = "https://wa.me/525635093209?text=" + encodeURIComponent(texto);
+    window.open(url, "_blank");
+});
 </script>
 
 </body>
